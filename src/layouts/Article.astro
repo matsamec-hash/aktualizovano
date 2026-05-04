@@ -1,0 +1,231 @@
+---
+import Base from "./Base.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import Newsletter from "../components/Newsletter.astro";
+import { siteConfig } from "../../site.config";
+import type { Article } from "../lib/types";
+import sanitizeHtml from "sanitize-html";
+import { preprocessContent } from "../lib/content";
+import { autoLinkContent } from "../lib/auto-linker";
+
+interface Props {
+  article: Article;
+  relatedArticles: Article[];
+  others?: Article[];
+}
+
+const { article, relatedArticles, others = [] } = Astro.props;
+const readTime = Math.max(1, Math.ceil((article.content?.length || 0) / 1500));
+
+const linkedRaw = autoLinkContent(article.content || "", article, others);
+const preprocessed = preprocessContent(linkedRaw);
+
+const safeContent = sanitizeHtml(preprocessed, {
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "figure", "figcaption", "iframe", "video", "source"]),
+  allowedAttributes: {
+    ...sanitizeHtml.defaults.allowedAttributes,
+    img: ["src", "alt", "title", "width", "height", "loading", "decoding", "fetchpriority", "sizes", "srcset"],
+    a: ["href", "title", "rel", "target", "class"],
+    iframe: ["src", "width", "height", "frameborder", "allowfullscreen"],
+    video: ["src", "controls", "width", "height"],
+    source: ["src", "type"],
+    "*": ["class", "id", "style"],
+  },
+  allowedIframeHostnames: ["www.youtube.com", "player.vimeo.com"],
+});
+
+const publishDate = article.published_at
+  ? new Date(article.published_at).toLocaleDateString("cs", { day: "numeric", month: "long", year: "numeric" })
+  : "";
+const publishedIso = article.published_at ? new Date(article.published_at).toISOString() : undefined;
+const articleAny = article as Article & { updated_at?: string };
+const modifiedIso = articleAny.updated_at
+  ? new Date(articleAny.updated_at).toISOString()
+  : publishedIso;
+
+const altText = article.featured_image_alt || article.title;
+const url = `https://${siteConfig.domain}/${article.slug}`;
+const categoryConfig = siteConfig.categories.find((c) => c.slug === article.category);
+
+const sameCategory = (others ?? [])
+  .filter((a) => a.category === article.category && a.published_at)
+  .sort((a, b) => new Date(b.published_at!).getTime() - new Date(a.published_at!).getTime());
+const allInCat = [...sameCategory, article].sort(
+  (a, b) => new Date(b.published_at ?? 0).getTime() - new Date(a.published_at ?? 0).getTime(),
+);
+const idx = allInCat.findIndex((a) => a.id === article.id);
+const newer = idx > 0 ? allInCat[idx - 1] : null;
+const older = idx < allInCat.length - 1 ? allInCat[idx + 1] : null;
+
+const featuredImageObject = article.featured_image_url
+  ? {
+      "@type": "ImageObject",
+      "url": article.featured_image_url,
+      "width": 1200,
+      "height": 675,
+    }
+  : undefined;
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.seo_description || article.perex,
+  ...(featuredImageObject ? { "image": featuredImageObject } : {}),
+  "datePublished": publishedIso,
+  "dateModified": modifiedIso,
+  "author": {
+    "@type": "Person",
+    "@id": `https://${siteConfig.domain}/o-nas/#redakce`,
+    "name": `Redakce ${siteConfig.name}`,
+    "url": `https://${siteConfig.domain}/o-nas/`,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteConfig.name,
+    "url": `https://${siteConfig.domain}/`,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `https://${siteConfig.domain}/og-default.jpg`,
+      "width": 1200,
+      "height": 630,
+    },
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+  "articleSection": categoryConfig?.label ?? article.category,
+  ...(article.tags && article.tags.length > 0 ? { "keywords": article.tags.slice(0, 10).join(", ") } : {}),
+  "wordCount": (article.content || "").replace(/<[^>]*>/g, " ").trim().split(/\s+/).filter(Boolean).length,
+  "inLanguage": "cs-CZ",
+};
+
+const breadcrumbsLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Domů", "item": `https://${siteConfig.domain}/` },
+    ...(categoryConfig
+      ? [{
+          "@type": "ListItem",
+          "position": 2,
+          "name": categoryConfig.label,
+          "item": `https://${siteConfig.domain}/kategorie/${categoryConfig.slug}/`,
+        }]
+      : []),
+    {
+      "@type": "ListItem",
+      "position": categoryConfig ? 3 : 2,
+      "name": article.title,
+      "item": url,
+    },
+  ],
+};
+---
+
+<Base
+  title={article.seo_title || article.title}
+  description={article.seo_description || article.perex}
+  image={article.featured_image_url || undefined}
+  type="article"
+  slug={article.slug}
+  canonical={url}
+  publishedTime={publishedIso}
+  modifiedTime={modifiedIso}
+  jsonLd={[articleJsonLd, breadcrumbsLd]}
+  preloadImage={article.featured_image_url || undefined}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <header class="mb-8">
+      <div class="flex flex-wrap items-center gap-3 mb-4 text-xs">
+        {categoryConfig && (
+          <a href={`/kategorie/${categoryConfig.slug}/`} class="px-3 py-1 rounded uppercase tracking-widest font-semibold text-white" style={`background: var(--color-accent)`}>
+            {categoryConfig.label}
+          </a>
+        )}
+        <span class="text-[var(--color-text-muted)]">{readTime} min čtení</span>
+        {publishDate && <span class="text-[var(--color-text-muted)]">{publishDate}</span>}
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl font-bold leading-tight text-[var(--color-text)]">
+        {article.title}
+      </h1>
+      {article.perex && (
+        <p class="mt-4 text-lg text-[var(--color-text-muted)] leading-relaxed">{article.perex}</p>
+      )}
+    </header>
+
+    {article.featured_image_url && (
+      <figure class="mb-8 -mx-4 sm:-mx-6 md:mx-0">
+        <img
+          src={article.featured_image_url}
+          alt={altText}
+          class="w-full md:rounded-xl"
+          fetchpriority="high"
+          decoding="async"
+          width="1200"
+          height="675"
+        />
+        {article.featured_image_credit?.photographer_name && (
+          <figcaption class="text-xs text-[var(--color-text-muted)] mt-2 px-4 sm:px-6 md:px-0">
+            Foto:{' '}
+            {article.featured_image_credit.photographer_url ? (
+              <a href={article.featured_image_credit.photographer_url} rel="nofollow noopener" target="_blank" class="underline">
+                {article.featured_image_credit.photographer_name}
+              </a>
+            ) : (
+              <span>{article.featured_image_credit.photographer_name}</span>
+            )}
+            {article.featured_image_credit.source_url && (
+              <>
+                {' / '}
+                <a href={article.featured_image_credit.source_url} rel="nofollow noopener" target="_blank" class="underline">
+                  {article.featured_image_credit.provider}
+                </a>
+              </>
+            )}
+          </figcaption>
+        )}
+      </figure>
+    )}
+
+    <div class="article-content prose-base text-[var(--color-text)] leading-relaxed" set:html={safeContent} />
+
+    {article.tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-10 pt-8 border-t border-[var(--color-border)]">
+        {article.tags.map((tag) => (
+          <span class="px-3 py-1 rounded-full text-xs bg-[var(--color-bg-soft)] text-[var(--color-text-muted)]">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    {(newer || older) && (
+      <nav class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10 pt-8 border-t border-[var(--color-border)]" aria-label="Navigace v rubrice">
+        {older ? (
+          <a href={`/${older.slug}/`} class="block p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors">
+            <span class="block text-[10px] uppercase tracking-widest font-bold mb-2 text-[var(--color-text-muted)]">← Starší v rubrice</span>
+            <span class="block text-sm font-bold leading-tight">{older.title}</span>
+          </a>
+        ) : <span></span>}
+        {newer ? (
+          <a href={`/${newer.slug}/`} class="block p-4 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors text-right">
+            <span class="block text-[10px] uppercase tracking-widest font-bold mb-2 text-[var(--color-text-muted)]">Novější v rubrice →</span>
+            <span class="block text-sm font-bold leading-tight">{newer.title}</span>
+          </a>
+        ) : <span></span>}
+      </nav>
+    )}
+  </article>
+
+  {relatedArticles.length > 0 && (
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+      <h2 class="font-display text-2xl font-bold mb-6">Mohlo by vás zajímat</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {relatedArticles.map((a) => (
+          <ArticleCard article={a} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <Newsletter />
+  </div>
+</Base>

@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI bots — allowed (per project memory rozhodnutí)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# AI bots — blocked
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+Sitemap: https://aktualizovano.cz/sitemap-index.xml

@@ -1,0 +1,34 @@
+---
+// Newsletter placeholder — Phase 5+ ongoing wires up to CMS newsletter_subscribers
+// (existing v ~/content-network-cms/, double-opt-in flow shipped 2026-04-27).
+// Endpoint: POST https://admin.samecdigital.com/api/public/newsletter
+// (TBD — agro-svet má ne přímo CMS, has its own /api endpoint).
+---
+
+<section class="bg-[var(--color-primary)] text-white rounded-xl p-8 my-12">
+  <div class="max-w-2xl mx-auto text-center">
+    <h3 class="font-display text-2xl font-bold mb-2">Buďte v obraze</h3>
+    <p class="text-sm opacity-90 mb-5">Tipy a aktuality jednou týdně do schránky. Bez spamu.</p>
+    <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="vase@email.cz"
+        class="flex-1 px-4 py-2 rounded text-[var(--color-text)] bg-white"
+      />
+      <button type="submit" class="px-5 py-2 bg-[var(--color-accent)] rounded font-medium hover:opacity-90">
+        Odebírat
+      </button>
+    </form>
+    <p id="newsletter-msg" class="text-xs mt-3 opacity-75"></p>
+  </div>
+</section>
+
+<script is:inline>
+  document.getElementById("newsletter-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("newsletter-msg");
+    if (msg) msg.textContent = "Newsletter API zatím nepřipojené (Phase 5+).";
+  });
+</script>

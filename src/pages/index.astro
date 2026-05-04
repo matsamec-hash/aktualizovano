@@ -1,0 +1,67 @@
+---
+import Base from "../layouts/Base.astro";
+import HeroArticle from "../components/HeroArticle.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import { getPublishedArticles } from "../lib/supabase";
+import { siteConfig } from "../../site.config";
+
+const articles = await getPublishedArticles();
+const hero = articles[0];
+const recent = articles.slice(1, 7);
+
+const articlesByCategory = siteConfig.categories.map((cat) => ({
+  category: cat,
+  articles: articles.filter((a) => a.category === cat.slug).slice(0, 3),
+}));
+---
+
+<Base
+  title={`${siteConfig.name} — ${siteConfig.tagline}`}
+  description={siteConfig.description}
+  canonical={`https://${siteConfig.domain}/`}
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    {hero && (
+      <section class="mb-12">
+        <HeroArticle article={hero} />
+      </section>
+    )}
+
+    {recent.length > 0 && (
+      <section class="mb-16">
+        <h2 class="font-display text-2xl font-bold mb-6 text-[var(--color-text)]">Aktuálně</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {recent.map((article, i) => (
+            <ArticleCard article={article} priority={i < 3} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {articlesByCategory.map(({ category, articles: catArticles }) =>
+      catArticles.length > 0 ? (
+        <section class="mb-16">
+          <div class="flex items-end justify-between mb-6">
+            <div>
+              <h2 class="font-display text-2xl font-bold text-[var(--color-text)]">{category.label}</h2>
+              <p class="text-sm text-[var(--color-text-muted)] mt-1">{category.description}</p>
+            </div>
+            <a href={`/kategorie/${category.slug}/`} class="text-sm font-medium text-[var(--color-accent)] hover:underline shrink-0">
+              Vše →
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {catArticles.map((article) => <ArticleCard article={article} />)}
+          </div>
+        </section>
+      ) : null
+    )}
+
+    {articles.length === 0 && (
+      <div class="text-center py-20 text-[var(--color-text-muted)]">
+        <p class="font-display text-2xl mb-2">Připravujeme obsah</p>
+        <p class="text-sm">Brzy zde najdete články ze všech rubrik.</p>
+      </div>
+    )}
+  </div>
+</Base>

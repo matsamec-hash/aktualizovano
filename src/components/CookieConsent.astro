@@ -1,0 +1,40 @@
+---
+// Minimální cookie consent banner. AdSense/Sklik prep.
+// Phase 4 launch nahradí Cookiebot/Iubenda když user vybere CMP.
+---
+
+<div id="cookie-consent" class="fixed bottom-0 left-0 right-0 z-[100] hidden bg-[var(--color-text)] text-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
+    <p class="text-sm">
+      Tento web používá soubory cookies pro zlepšení služeb a analytiku.
+      <a href="/cookies/" class="underline hover:text-[var(--color-accent)]">Více informací</a>.
+    </p>
+    <div class="flex gap-2 shrink-0">
+      <button id="cookie-decline" class="px-4 py-2 text-sm border border-white/30 rounded hover:bg-white/10">
+        Odmítnout
+      </button>
+      <button id="cookie-accept" class="px-4 py-2 text-sm bg-[var(--color-accent)] rounded font-medium hover:opacity-90">
+        Přijmout
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const KEY = "aktualizovano-cookie-consent";
+    const banner = document.getElementById("cookie-consent");
+    if (!banner) return;
+    if (!localStorage.getItem(KEY)) {
+      banner.classList.remove("hidden");
+    }
+    document.getElementById("cookie-accept")?.addEventListener("click", () => {
+      localStorage.setItem(KEY, "accepted");
+      banner.classList.add("hidden");
+    });
+    document.getElementById("cookie-decline")?.addEventListener("click", () => {
+      localStorage.setItem(KEY, "declined");
+      banner.classList.add("hidden");
+    });
+  })();
+</script>

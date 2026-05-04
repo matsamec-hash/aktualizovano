@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { siteConfig } from "../../site.config";
+---
+
+<Base
+  title={`O nás — ${siteConfig.name}`}
+  description={`O magazínu ${siteConfig.name} a redakci.`}
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <header class="mb-8">
+      <h1 class="font-display text-4xl md:text-5xl font-bold mb-3">O nás</h1>
+      <p class="text-lg text-[var(--color-text-muted)]">{siteConfig.tagline}</p>
+    </header>
+
+    <div class="article-content">
+      <p>
+        <strong>{siteConfig.name}</strong> je multi-niche magazín pokrývající tech, auta, lifestyle, zábavu, cestování a finance. Píšeme bez senzace, srozumitelně a opíráme se o ověřené zdroje.
+      </p>
+
+      <h2 id="redakce">Redakce</h2>
+      <p>
+        Redakce {siteConfig.name} připravuje obsah napříč rubrikami. Kontakt: <a href={`mailto:redakce@${siteConfig.domain}`}>redakce@{siteConfig.domain}</a>.
+      </p>
+
+      <h2>Inzerce</h2>
+      <p>
+        Pro inzerci a sponzorované články nás kontaktujte na <a href={`mailto:inzerce@${siteConfig.domain}`}>inzerce@{siteConfig.domain}</a>.
+      </p>
+    </div>
+  </article>
+</Base>

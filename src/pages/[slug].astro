@@ -1,0 +1,17 @@
+---
+import Article from "../layouts/Article.astro";
+import { getPublishedArticles, getRelatedArticles } from "../lib/supabase";
+
+export async function getStaticPaths() {
+  const articles = await getPublishedArticles();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article, others: articles.filter((a) => a.id !== article.id) },
+  }));
+}
+
+const { article, others } = Astro.props;
+const relatedArticles = await getRelatedArticles(article.id, article.category, article.tags);
+---
+
+<Article article={article} relatedArticles={relatedArticles} others={others} />

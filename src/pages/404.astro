@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { siteConfig } from "../../site.config";
+---
+
+<Base
+  title={`Stránka nenalezena — ${siteConfig.name}`}
+  description="Stránka, kterou hledáte, neexistuje nebo byla přesunuta."
+  robots="noindex, follow"
+>
+  <div class="max-w-2xl mx-auto px-4 py-20 text-center">
+    <p class="font-display text-7xl font-bold text-[var(--color-accent)] mb-4">404</p>
+    <h1 class="font-display text-3xl font-bold mb-4">Stránka nenalezena</h1>
+    <p class="text-[var(--color-text-muted)] mb-8">Zkuste se vrátit na úvodní stránku nebo prohlédnout naše rubriky.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/" class="px-5 py-2 bg-[var(--color-accent)] text-white rounded font-medium hover:opacity-90">Domů</a>
+      {siteConfig.categories.slice(0, 4).map((cat) => (
+        <a href={`/kategorie/${cat.slug}/`} class="px-4 py-2 border border-[var(--color-border)] rounded text-sm hover:border-[var(--color-accent)]">
+          {cat.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
