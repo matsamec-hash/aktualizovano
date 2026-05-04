@@ -1,5 +1,6 @@
 ---
 import Base from "./Base.astro";
+import AdSlot from "../components/AdSlot.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import Newsletter from "../components/Newsletter.astro";
 import { siteConfig } from "../../site.config";
@@ -133,7 +134,7 @@ const breadcrumbsLd = {
   jsonLd={[articleJsonLd, breadcrumbsLd]}
   preloadImage={article.featured_image_url || undefined}
 >
-  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10" data-pagefind-body data-pagefind-filter={`Kategorie:${categoryConfig?.label || ''}`}>
     <header class="mb-8">
       <div class="flex flex-wrap items-center gap-3 mb-4 text-xs">
         {categoryConfig && (
@@ -187,6 +188,8 @@ const breadcrumbsLd = {
     )}
 
     <div class="article-content prose-base text-[var(--color-text)] leading-relaxed" set:html={safeContent} />
+
+    <AdSlot slot="article-end" variant="display" ratio="4 / 1" />
 
     {article.tags.length > 0 && (
       <div class="flex flex-wrap gap-2 mt-10 pt-8 border-t border-[var(--color-border)]">

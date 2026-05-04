@@ -1,0 +1,51 @@
+---
+/**
+ * AdSlot — placeholder for Google AdSense (and future Sklik) slots.
+ *
+ * Until AdSense schvaluje Phase 4 a user vyplní `siteConfig.adsense.clientId`
+ * (TODO), tento komponent renderuje neutrální placeholder, aby měl layout
+ * zarezervovaný prostor (CLS 0). Po schválení swap na real <ins> tag s
+ * data-ad-client + data-ad-slot.
+ */
+interface Props {
+  /** Slot identifier (sets data-ad-slot when wired). Free-form for now. */
+  slot: string;
+  /** in-feed | display | sidebar | footer — pro analytic + future styling */
+  variant?: "in-feed" | "display" | "sidebar" | "footer";
+  /** Aspect ratio reservation (CSS aspect-ratio). Default 4/1 (banner). */
+  ratio?: string;
+  class?: string;
+}
+
+const { slot, variant = "display", ratio = "4 / 1", class: className = "" } = Astro.props;
+---
+<aside
+  class={`ad-slot ad-slot--${variant} ${className}`}
+  data-ad-slot={slot}
+  data-ad-variant={variant}
+  data-pagefind-ignore
+  aria-label="Reklama"
+  style={`aspect-ratio: ${ratio};`}
+>
+  <span class="ad-slot__label">reklama</span>
+</aside>
+
+<style>
+  .ad-slot {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-soft);
+    border: 1px dashed var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 1.5rem 0;
+  }
+  .ad-slot__label { opacity: 0.6; }
+  .ad-slot--sidebar { aspect-ratio: 1 / 2; }
+  .ad-slot--footer { margin-top: 3rem; }
+</style>

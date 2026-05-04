@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /pagefind/
 
 # AI bots — allowed (per project memory rozhodnutí)
 User-agent: GPTBot

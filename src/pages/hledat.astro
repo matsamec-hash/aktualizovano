@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Hledat" description="Vyhledávání v článcích Aktualizováno.cz" robots="noindex,follow" slug="hledat">
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-6 text-[var(--color-text)]">Hledat</h1>
+    <div id="search"></div>
+  </article>
+</Base>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script type="module" is:inline>
+  import { PagefindUI } from '/pagefind/pagefind-ui.js';
+  new PagefindUI({
+    element: '#search',
+    showImages: false,
+    showSubResults: true,
+    autofocus: true,
+    translations: {
+      placeholder: 'Hledat článek',
+      clear_search: 'Vymazat',
+      load_more: 'Načíst další výsledky',
+      search_label: 'Hledat',
+      filters_label: 'Filtry',
+      zero_results: 'Žádné výsledky pro „[SEARCH_TERM]"',
+      many_results: '[COUNT] výsledků pro „[SEARCH_TERM]"',
+      one_result: '[COUNT] výsledek pro „[SEARCH_TERM]"',
+      alt_search: 'Žádné výsledky pro „[SEARCH_TERM]" — zkuste „[DIFFERENT_TERM]"',
+      search_suggestion: 'Žádné výsledky pro „[SEARCH_TERM]". Zkuste hledat:',
+      searching: 'Hledám…',
+    },
+  });
+</script>
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-primary: var(--color-primary);
+    --pagefind-ui-text: var(--color-text);
+    --pagefind-ui-background: var(--color-bg);
+    --pagefind-ui-border: var(--color-border);
+    --pagefind-ui-tag: var(--color-bg-soft);
+    --pagefind-ui-border-radius: 6px;
+    --pagefind-ui-image-border-radius: 6px;
+    --pagefind-ui-image-box-ratio: 3/2;
+  }
+</style>
