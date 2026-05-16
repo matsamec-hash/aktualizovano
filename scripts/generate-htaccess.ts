@@ -98,6 +98,12 @@ async function main() {
   lines.push("RewriteRule ^l-cs/c-.*$ / [R=301,L]");
   lines.push("RewriteRule ^l-sk/source-.*$ / [R=301,L]");
   lines.push("");
+  lines.push("# Baseline category redirects — every /category/{slug}/ → /kategorie/{slug}/");
+  lines.push("# (covers slugs not in Phase 0 audit, e.g. lifestyle added post-audit)");
+  for (const slug of [...CATEGORY_SLUGS].sort()) {
+    lines.push(`RewriteRule ^category/${slug}/?$ /kategorie/${slug}/ [R=301,L]`);
+  }
+  lines.push("");
   lines.push(`# ${rows.length} explicit redirects from Supabase`);
 
   const stripTrailing = (s: string) => s.replace(/\/+$/, "");
