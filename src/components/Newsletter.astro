@@ -1,8 +1,7 @@
 ---
-// Newsletter placeholder — Phase 5+ ongoing wires up to CMS newsletter_subscribers
-// (existing v ~/content-network-cms/, double-opt-in flow shipped 2026-04-27).
-// Endpoint: POST https://admin.samecdigital.com/api/public/newsletter
-// (TBD — agro-svet má ne přímo CMS, has its own /api endpoint).
+import { siteConfig } from "../../site.config";
+
+const CMS_URL = "https://admin.samecdigital.com";
 ---
 
 <section class="bg-[var(--color-primary)] text-white rounded-xl p-8 my-12">
@@ -14,21 +13,70 @@
         type="email"
         name="email"
         required
+        autocomplete="email"
         placeholder="vase@email.cz"
         class="flex-1 px-4 py-2 rounded text-[var(--color-text)] bg-white"
       />
-      <button type="submit" class="px-5 py-2 bg-[var(--color-accent)] rounded font-medium hover:opacity-90">
+      <button type="submit" id="newsletter-btn" class="px-5 py-2 bg-[var(--color-accent)] rounded font-medium hover:opacity-90 disabled:opacity-50">
         Odebírat
       </button>
     </form>
-    <p id="newsletter-msg" class="text-xs mt-3 opacity-75"></p>
+    <p id="newsletter-msg" class="text-xs mt-3 opacity-75 min-h-[1em]" aria-live="polite"></p>
   </div>
 </section>
 
-<script is:inline>
-  document.getElementById("newsletter-form")?.addEventListener("submit", (e) => {
+<script define:vars={{ cmsUrl: CMS_URL, siteId: siteConfig.siteId }}>
+  const form = document.getElementById("newsletter-form");
+  const status = document.getElementById("newsletter-msg");
+  const button = document.getElementById("newsletter-btn");
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const RATE_LIMIT_KEY = "akt-nl-last";
+  const RATE_LIMIT_MS = 30_000;
+  let inFlight = false;
+
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const msg = document.getElementById("newsletter-msg");
-    if (msg) msg.textContent = "Newsletter API zatím nepřipojené (Phase 5+).";
+    if (inFlight) return;
+    const email = String(new FormData(form).get("email") || "").trim();
+    if (!EMAIL_RE.test(email)) {
+      status.textContent = "Zadejte platnou e-mailovou adresu.";
+      return;
+    }
+    const last = Number(localStorage.getItem(RATE_LIMIT_KEY) || 0);
+    if (Date.now() - last < RATE_LIMIT_MS) {
+      status.textContent = "Počkejte chvíli před dalším pokusem.";
+      return;
+    }
+    inFlight = true;
+    if (button) button.disabled = true;
+    status.textContent = "Odesílám…";
+    try {
+      const ctrl = new AbortController();
+      const timeout = setTimeout(() => ctrl.abort(), 10_000);
+      const res = await fetch(`${cmsUrl}/api/public/newsletter/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ site_id: siteId, email }),
+        signal: ctrl.signal,
+      });
+      clearTimeout(timeout);
+      if (res.status === 404) {
+        status.textContent = "Newsletter zatím není napojený. Zkuste to za pár dní.";
+        return;
+      }
+      if (res.status === 429) {
+        status.textContent = "Příliš mnoho pokusů. Zkuste to za chvíli znovu.";
+        return;
+      }
+      if (!res.ok) throw new Error("subscribe failed");
+      localStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
+      status.textContent = "Děkujeme! Odběr potvrdíme e-mailem.";
+      form.reset();
+    } catch {
+      status.textContent = "Něco se pokazilo. Zkuste to prosím znovu.";
+    } finally {
+      inFlight = false;
+      if (button) button.disabled = false;
+    }
   });
 </script>
