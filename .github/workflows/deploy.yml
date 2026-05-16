@@ -48,5 +48,5 @@ jobs:
             set net:max-retries 3;
             set net:reconnect-interval-base 10;
             open -u $FTP_USER,$FTP_PASS $FTP_HOST;
-            mirror --reverse --only-newer --parallel=2 dist/ /;
+            mirror --reverse --only-newer --parallel=2 dist/ /public_html/staging/;
           "
