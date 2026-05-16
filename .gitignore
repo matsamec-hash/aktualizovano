@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# generated at prebuild from Supabase redirects table
+public/.htaccess
+
 # dependencies
 node_modules/
 

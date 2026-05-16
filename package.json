@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node --experimental-strip-types scripts/generate-htaccess.ts",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
