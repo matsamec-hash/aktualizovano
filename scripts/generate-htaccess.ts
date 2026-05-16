@@ -47,6 +47,15 @@ async function main() {
   lines.push("");
   lines.push("Options -Indexes");
   lines.push("");
+  lines.push("# Staging subdomain: prevent search engine indexing of duplicate content");
+  lines.push("# Production (aktualizovano.cz) — no header, indexes normally");
+  lines.push("<IfModule mod_setenvif.c>");
+  lines.push("  SetEnvIfNoCase Host \"^staging\\.\" AKT_STAGING=1");
+  lines.push("</IfModule>");
+  lines.push("<IfModule mod_headers.c>");
+  lines.push("  Header set X-Robots-Tag \"noindex, nofollow, nosnippet\" env=AKT_STAGING");
+  lines.push("</IfModule>");
+  lines.push("");
   lines.push("<IfModule mod_rewrite.c>");
   lines.push("RewriteEngine On");
   lines.push("");
