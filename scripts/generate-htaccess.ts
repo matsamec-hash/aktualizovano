@@ -30,6 +30,39 @@ function escapeApache(s: string): string {
   return s.replace(/([.+?^${}()|[\]\\])/g, "\\$1");
 }
 
+/**
+ * Phase 0 audit produced redirect targets assuming flat /{slug}/ URLs,
+ * but the Astro build uses /kategorie/{slug}/. This normalizes the target
+ * paths to match actual deployed routes — without modifying the source DB.
+ *
+ * Also fixes the `automoto` → `auto-moto` slug spelling.
+ */
+const CATEGORY_SLUGS = new Set([
+  "tech",
+  "auto-moto",
+  "lifestyle",
+  "zabava",
+  "cestovani",
+  "finance",
+]);
+const SLUG_ALIAS: Record<string, string> = {
+  automoto: "auto-moto",
+};
+function normalizeTarget(path: string): string {
+  // Pagination archives → homepage (no equivalent in new site)
+  if (/^\/page(\/|$)/.test(path)) return "/";
+
+  // Match a single-segment slug like /zabava/ or /automoto/
+  const m = path.match(/^\/([a-z][a-z0-9-]*)\/?$/);
+  if (!m) return path;
+  const raw = m[1];
+  const canonical = SLUG_ALIAS[raw] ?? raw;
+  if (CATEGORY_SLUGS.has(canonical)) {
+    return `/kategorie/${canonical}/`;
+  }
+  return path;
+}
+
 async function main() {
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const { data, error } = await supabase
@@ -75,7 +108,7 @@ async function main() {
   let skipped = 0;
   for (const r of rows) {
     const from = toRelative(r.from_url);
-    const to = toRelative(r.to_url);
+    const to = normalizeTarget(toRelative(r.to_url));
     if (normalize(from) === normalize(to)) {
       skipped++;
       continue;
