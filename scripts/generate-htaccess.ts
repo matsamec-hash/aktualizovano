@@ -133,6 +133,20 @@ async function main() {
     written++;
   }
   lines.push("");
+  lines.push("# WP legacy URL fallbacks — handle long tail of pre-migration URLs");
+  lines.push("# RSS feeds (any /feed/ or /*/feed/ path)");
+  lines.push("RewriteRule ^feed/?$ /rss.xml [R=301,L]");
+  lines.push("RewriteRule ^.+/feed/?$ /rss.xml [R=301,L]");
+  lines.push("# WP search ?s=X → Pagefind /hledat?q=X");
+  lines.push("RewriteCond %{QUERY_STRING} ^s=(.+)$");
+  lines.push("RewriteRule ^$ /hledat?q=%1 [R=301,L]");
+  lines.push("# Tag / author archives — not migrated, route to homepage");
+  lines.push("RewriteRule ^tag/.*$ / [R=301,L]");
+  lines.push("RewriteRule ^author/.*$ / [R=301,L]");
+  lines.push("# wp-admin probes (bots) — silently route to homepage");
+  lines.push("RewriteRule ^wp-admin/?.*$ / [R=301,L]");
+  lines.push("RewriteRule ^wp-login\\.php$ / [R=301,L]");
+  lines.push("");
   lines.push("# Clean URL fallback — Astro static directory index");
   lines.push("DirectoryIndex index.html");
   lines.push("");
