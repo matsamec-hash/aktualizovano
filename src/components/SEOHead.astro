@@ -37,11 +37,29 @@ const orgJsonLd = {
   "sameAs": siteConfig.networkSites.map((s) => `https://${s.domain}/`),
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteConfig.name,
+  "alternateName": siteConfig.tagline,
+  "url": `https://${siteConfig.domain}/`,
+  "inLanguage": "cs-CZ",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `https://${siteConfig.domain}/hledat?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const baseJsonLd = [orgJsonLd, websiteJsonLd];
 const allJsonLd = jsonLd
   ? Array.isArray(jsonLd)
-    ? [orgJsonLd, ...jsonLd]
-    : [orgJsonLd, jsonLd]
-  : [orgJsonLd];
+    ? [...baseJsonLd, ...jsonLd]
+    : [...baseJsonLd, jsonLd]
+  : baseJsonLd;
 ---
 
 <meta charset="UTF-8" />
