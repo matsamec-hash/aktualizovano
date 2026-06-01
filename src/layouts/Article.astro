@@ -4,6 +4,9 @@ import AdSlot from "../components/AdSlot.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ResponsiveImage from "../components/ResponsiveImage.astro";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
+import { getImage } from "astro:assets";
 import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
 import sanitizeHtml from "sanitize-html";
@@ -47,6 +50,18 @@ const modifiedIso = article.last_updated_at
   : publishedIso;
 
 const altText = article.featured_image_alt || article.title;
+// LCP preload featured obrázku – optimalizovaná webp varianta matchující <img> níž.
+let preloadHref = article.featured_image_url || undefined;
+let preloadSrcset: string | undefined;
+if (article.featured_image_url) {
+  try {
+    const opt = await getImage({ src: article.featured_image_url, inferSize: true, widths: IMG_WIDTHS.featured, format: "webp" });
+    preloadHref = opt.src;
+    preloadSrcset = opt.srcSet.attribute;
+  } catch {
+    // Mrtvá/nepodporovaná URL → fallback na originál.
+  }
+}
 const url = `https://${siteConfig.domain}/${article.slug}`;
 const categoryConfig = siteConfig.categories.find((c) => c.slug === article.category);
 
@@ -152,7 +167,9 @@ const breadcrumbsLd = {
   publishedTime={publishedIso}
   modifiedTime={modifiedIso}
   jsonLd={[articleJsonLd, breadcrumbsLd]}
-  preloadImage={article.featured_image_url || undefined}
+  preloadImage={preloadHref}
+  preloadImageSrcset={preloadSrcset}
+  preloadImageSizes={IMG_SIZES.featured}
 >
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10" data-pagefind-body data-pagefind-filter={`Kategorie:${categoryConfig?.label || ''}`}>
     <Breadcrumbs items={breadcrumbItems} class="mb-6" />
@@ -176,14 +193,16 @@ const breadcrumbsLd = {
 
     {article.featured_image_url && (
       <figure class="mb-8 -mx-4 sm:-mx-6 md:mx-0">
-        <img
+        <ResponsiveImage
           src={article.featured_image_url}
           alt={altText}
-          class="w-full md:rounded-xl"
+          widths={IMG_WIDTHS.featured}
+          sizes={IMG_SIZES.featured}
+          width={1200}
+          height={675}
+          loading="eager"
           fetchpriority="high"
-          decoding="async"
-          width="1200"
-          height="675"
+          class="w-full md:rounded-xl"
         />
         {article.featured_image_credit?.photographer_name && (
           <figcaption class="text-xs text-[var(--color-text-muted)] mt-2 px-4 sm:px-6 md:px-0">

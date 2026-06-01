@@ -1,5 +1,7 @@
 ---
 import RailStory from "./RailStory.astro";
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
 
@@ -32,13 +34,13 @@ const leadAlt = lead?.featured_image_alt || lead?.title || "";
     <a href={`/${lead.slug}/`} class="group block">
       <div class="overflow-hidden bg-[var(--color-bg-soft)]" style="aspect-ratio: 16/10;">
         {lead.featured_image_url && (
-          <img
+          <ResponsiveImage
             src={lead.featured_image_url}
             alt={leadAlt}
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="500"
+            widths={IMG_WIDTHS.card}
+            sizes={IMG_SIZES.cardHalf}
+            width={800}
+            height={500}
             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
             style={`object-position: ${fp.x}% ${fp.y}%;`}
           />

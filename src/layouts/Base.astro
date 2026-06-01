@@ -17,6 +17,10 @@ interface Props {
   publishedTime?: string | null;
   modifiedTime?: string | null;
   preloadImage?: string | null;
+  // LCP preload responzivní varianty (musí matchovat vykreslený <img>, jinak
+  // prohlížeč stáhne originál i webp). Když chybí, fallbackne na preloadImage href.
+  preloadImageSrcset?: string | null;
+  preloadImageSizes?: string | null;
 }
 
 const {
@@ -31,6 +35,8 @@ const {
   publishedTime,
   modifiedTime,
   preloadImage,
+  preloadImageSrcset,
+  preloadImageSizes,
 } = Astro.props;
 ---
 
@@ -53,7 +59,18 @@ const {
     <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latinext.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latinext.woff2" crossorigin />
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {preloadImageSrcset ? (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImage}
+        imagesrcset={preloadImageSrcset}
+        imagesizes={preloadImageSizes}
+        fetchpriority="high"
+      />
+    ) : (
+      preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
     <Header />

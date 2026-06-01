@@ -1,0 +1,72 @@
+---
+// Build-time responzivní obrázek. CDN (cdn.samecdigital.com) NEUMÍ resize, takže
+// varianty generujeme lokálně při buildu (sharp) → webp + srcset. Originály se
+// servírovaly v plné velikosti i pro 96px thumbnaily → hlavní LCP/přenosová páka.
+//
+// try/catch: některé CDN obrázky (2020–2025) můžou být 404 → getImage by jinak
+// SHODIL CELÝ BUILD (= rozbitý prod deploy). Fallback = původní <img src>.
+import { getImage } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+  widths: number[];
+  sizes: string;
+  width: number;
+  height: number;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "auto";
+  class?: string;
+  style?: string;
+}
+
+const {
+  src,
+  alt,
+  widths,
+  sizes,
+  width,
+  height,
+  loading = "lazy",
+  fetchpriority = "auto",
+  class: className,
+  style,
+} = Astro.props;
+
+let optimized: Awaited<ReturnType<typeof getImage>> | null = null;
+try {
+  optimized = await getImage({ src, inferSize: true, widths, format: "webp" });
+} catch {
+  // Build-time fetch/resize selhal (mrtvá URL, nepodporovaný formát) → originál.
+  optimized = null;
+}
+---
+
+{optimized ? (
+  <img
+    src={optimized.src}
+    srcset={optimized.srcSet.attribute}
+    sizes={sizes}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class={className}
+    style={style}
+  />
+) : (
+  <img
+    src={src}
+    sizes={sizes}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class={className}
+    style={style}
+  />
+)}
