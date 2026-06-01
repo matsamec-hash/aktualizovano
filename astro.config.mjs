@@ -41,6 +41,11 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  image: {
+    // Autorizace remote CDN, ze které build-time optimalizujeme obrázky (sharp).
+    // CDN sám resize neumí → varianty generujeme lokálně do dist/_astro/.
+    remotePatterns: [{ protocol: 'https', hostname: 'cdn.samecdigital.com' }],
+  },
   integrations: [
     sitemap({
       changefreq: 'daily',

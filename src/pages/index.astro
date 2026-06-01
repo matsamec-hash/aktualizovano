@@ -5,6 +5,8 @@ import FloatingCard from "../components/FloatingCard.astro";
 import CategoryBlock from "../components/CategoryBlock.astro";
 import RecentCarousel from "../components/RecentCarousel.astro";
 import { getPublishedArticles } from "../lib/supabase";
+import { getImage } from "astro:assets";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 import { siteConfig } from "../../site.config";
 
 const articles = await getPublishedArticles();
@@ -19,15 +21,29 @@ const articlesByCategory = siteConfig.categories
   }))
   .filter((c) => c.articles.length > 0);
 
-// LCP = první slide hero carouselu → preload jeho obrázku (zbytek se lazy-loaduje).
+// LCP = první slide hero carouselu → preload optimalizované webp varianty (musí
+// matchovat <img> v HeroCarouselu, jinak se stáhne originál i webp).
 const heroLcpImage = heroSlides[0]?.featured_image_url || undefined;
+let heroPreloadHref = heroLcpImage;
+let heroPreloadSrcset: string | undefined;
+if (heroLcpImage) {
+  try {
+    const opt = await getImage({ src: heroLcpImage, inferSize: true, widths: IMG_WIDTHS.hero, format: "webp" });
+    heroPreloadHref = opt.src;
+    heroPreloadSrcset = opt.srcSet.attribute;
+  } catch {
+    // Mrtvá/nepodporovaná URL → fallback na originál (žádný preload-mismatch crash).
+  }
+}
 ---
 
 <Base
   title={`${siteConfig.name} — ${siteConfig.tagline}`}
   description={siteConfig.description}
   canonical={`https://${siteConfig.domain}/`}
-  preloadImage={heroLcpImage}
+  preloadImage={heroPreloadHref}
+  preloadImageSrcset={heroPreloadSrcset}
+  preloadImageSizes={IMG_SIZES.hero}
 >
   {heroSlides.length > 0 && <HeroCarousel articles={heroSlides} />}
 

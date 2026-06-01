@@ -1,6 +1,8 @@
 ---
 import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 
 interface Props {
   articles: Article[];
@@ -32,15 +34,15 @@ function meta(a: Article) {
           ]}
         >
           {article.featured_image_url ? (
-            <img
+            <ResponsiveImage
               src={article.featured_image_url}
               alt={m.alt}
+              widths={IMG_WIDTHS.hero}
+              sizes={IMG_SIZES.hero}
+              width={2000}
+              height={1200}
               loading={i === 0 ? "eager" : "lazy"}
               fetchpriority={i === 0 ? "high" : "auto"}
-              decoding="async"
-              width="2000"
-              height="1200"
-              sizes="100vw"
               class="absolute inset-0 h-full w-full object-cover"
               style={`object-position: ${m.fp.x}% ${m.fp.y}%;`}
             />

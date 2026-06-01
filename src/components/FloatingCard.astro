@@ -1,6 +1,8 @@
 ---
 import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 
 interface Props {
   article: Article;
@@ -18,13 +20,13 @@ const altText = article.featured_image_alt || article.title;
 >
   <div class="aspect-square w-20 shrink-0 overflow-hidden bg-[var(--color-bg-soft)] sm:w-16 md:w-20">
     {article.featured_image_url ? (
-      <img
+      <ResponsiveImage
         src={article.featured_image_url}
         alt={altText}
-        loading="lazy"
-        decoding="async"
-        width="96"
-        height="96"
+        widths={IMG_WIDTHS.thumb}
+        sizes={IMG_SIZES.thumb}
+        width={96}
+        height={96}
         class="h-full w-full object-cover"
         style={`object-position: ${fp.x}% ${fp.y}%;`}
       />

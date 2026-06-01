@@ -1,6 +1,8 @@
 ---
 import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
+import ResponsiveImage from "./ResponsiveImage.astro";
+import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 
 interface Props {
   article: Article;
@@ -20,15 +22,15 @@ const dateStr = article.published_at
 <a href={`/${article.slug}/`} class="block group">
   <div class="rounded-lg overflow-hidden mb-3 bg-[var(--color-bg-soft)]" style="aspect-ratio: 16/10;">
     {article.featured_image_url ? (
-      <img
+      <ResponsiveImage
         src={article.featured_image_url}
         alt={altText}
+        widths={IMG_WIDTHS.card}
+        sizes={IMG_SIZES.card}
+        width={800}
+        height={500}
         loading={priority ? "eager" : "lazy"}
         fetchpriority={priority ? "high" : "auto"}
-        decoding="async"
-        width="800"
-        height="500"
-        sizes="(min-width: 768px) 33vw, 100vw"
         class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
         style={`object-position: ${fp.x}% ${fp.y}%;`}
       />
