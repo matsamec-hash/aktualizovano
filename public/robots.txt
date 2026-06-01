@@ -29,3 +29,4 @@ User-agent: SemrushBot
 Disallow: /
 
 Sitemap: https://aktualizovano.cz/sitemap-index.xml
+Sitemap: https://aktualizovano.cz/news-sitemap.xml
