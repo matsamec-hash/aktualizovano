@@ -48,6 +48,18 @@ const altText = article.featured_image_alt || article.title;
 const url = `https://${siteConfig.domain}/${article.slug}`;
 const categoryConfig = siteConfig.categories.find((c) => c.slug === article.category);
 
+// NewsArticle pro běžné zpravodajství; evergreen obsah zůstává Article.
+// Explicitní schema_type z DM (jiný než default "Article") má přednost.
+const articleExtra = article as Article & { evergreen?: boolean; schema_type?: string };
+const schemaType =
+  articleExtra.schema_type && articleExtra.schema_type !== "Article"
+    ? articleExtra.schema_type
+    : articleExtra.evergreen
+      ? "Article"
+      : "NewsArticle";
+// Google doporučuje headline ≤110 znaků (NewsArticle).
+const headline = article.title.length > 110 ? `${article.title.slice(0, 107).trimEnd()}…` : article.title;
+
 const sameCategory = (others ?? [])
   .filter((a) => a.category === article.category && a.published_at)
   .sort((a, b) => new Date(b.published_at!).getTime() - new Date(a.published_at!).getTime());
@@ -69,8 +81,8 @@ const featuredImageObject = article.featured_image_url
 
 const articleJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": article.title,
+  "@type": schemaType,
+  "headline": headline,
   "description": article.seo_description || article.perex,
   ...(featuredImageObject ? { "image": featuredImageObject } : {}),
   "datePublished": publishedIso,
