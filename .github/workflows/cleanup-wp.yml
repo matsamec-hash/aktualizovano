@@ -66,11 +66,7 @@ jobs:
             set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes;
             set ssl:verify-certificate no; set cmd:fail-exit no;
             open -u $FTP_USER,$FTP_PASS $FTP_HOST;
-            echo '--- removing WP directories ---';
-            rm -r /public_html/wp-admin;
-            rm -r /public_html/wp-includes;
-            rm -r /public_html/wp-content;
-            echo '--- removing WP root files ---';
+            echo '--- removing WP root files first (fast) ---';
             rm /public_html/index.php;
             rm /public_html/xmlrpc.php;
             rm /public_html/wp-activate.php;
