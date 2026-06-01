@@ -1,0 +1,42 @@
+---
+import { siteConfig } from "../../site.config";
+import type { Article } from "../lib/types";
+
+interface Props {
+  article: Article;
+}
+
+const { article } = Astro.props;
+const fp = article.focal_point || { x: 50, y: 50 };
+const categoryLabel = siteConfig.categories.find((c) => c.slug === article.category)?.label ?? article.category;
+const altText = article.featured_image_alt || article.title;
+---
+
+<a href={`/${article.slug}/`} class="group flex gap-4 py-4 first:pt-0">
+  <div class="aspect-square w-24 shrink-0 overflow-hidden rounded-lg bg-[var(--color-bg-soft)] sm:w-28">
+    {article.featured_image_url ? (
+      <img
+        src={article.featured_image_url}
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        width="120"
+        height="120"
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        style={`object-position: ${fp.x}% ${fp.y}%;`}
+      />
+    ) : (
+      <div class="h-full w-full"></div>
+    )}
+  </div>
+  <div class="min-w-0 flex-1">
+    {categoryLabel && (
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-accent)]">
+        {categoryLabel}
+      </span>
+    )}
+    <h3 class="font-display mt-1 text-base font-bold leading-snug text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)] line-clamp-3">
+      {article.title}
+    </h3>
+  </div>
+</a>

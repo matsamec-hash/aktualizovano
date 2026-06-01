@@ -133,6 +133,12 @@ async function main() {
     written++;
   }
   lines.push("");
+  lines.push("# Removed pagination — stránkování zrušeno, /{slug}/{n}/ → /{slug}/");
+  lines.push("RewriteRule ^kategorie/([^/]+)/[0-9]+/?$ /kategorie/$1/ [R=301,L]");
+  lines.push("RewriteCond %{REQUEST_FILENAME} !-f");
+  lines.push("RewriteCond %{REQUEST_FILENAME} !-d");
+  lines.push("RewriteRule ^([^/]+)/[0-9]+/?$ /$1/ [R=301,L]");
+  lines.push("");
   lines.push("# WP legacy URL fallbacks — handle long tail of pre-migration URLs");
   lines.push("# RSS feeds (any /feed/ or /*/feed/ path)");
   lines.push("RewriteRule ^feed/?$ /rss.xml [R=301,L]");
