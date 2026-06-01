@@ -1,0 +1,62 @@
+---
+import ArticleCard from "./ArticleCard.astro";
+import type { Article } from "../lib/types";
+
+interface Props {
+  articles: Article[];
+  title?: string;
+}
+
+const { articles, title = "Nejnovější" } = Astro.props;
+---
+
+<section class="mb-16" data-recent-carousel>
+  <div class="mb-6 flex items-end justify-between border-b-2 border-[var(--color-text)] pb-3">
+    <h2 class="font-display text-2xl font-extrabold uppercase tracking-tight text-[var(--color-text)]">{title}</h2>
+    <div class="flex gap-2">
+      <button
+        type="button"
+        data-prev
+        aria-label="Předchozí"
+        class="flex h-9 w-9 items-center justify-center border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-text)] hover:text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-next
+        aria-label="Další"
+        class="flex h-9 w-9 items-center justify-center border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:bg-[var(--color-text)] hover:text-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    data-track
+    class="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {articles.map((article, i) => (
+      <div class="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31.5%]">
+        <ArticleCard article={article} priority={i < 3} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-recent-carousel]").forEach((root) => {
+    const track = root.querySelector("[data-track]") as HTMLElement | null;
+    const prev = root.querySelector("[data-prev]");
+    const next = root.querySelector("[data-next]");
+    if (!track) return;
+    const step = () => track.clientWidth * 0.9;
+    prev?.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+    next?.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+  });
+</script>

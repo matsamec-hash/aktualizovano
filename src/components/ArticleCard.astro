@@ -12,6 +12,9 @@ const readTime = Math.max(1, Math.ceil((article.content?.length || 0) / 1500));
 const fp = article.focal_point || { x: 50, y: 50 };
 const categoryLabel = siteConfig.categories.find((c) => c.slug === article.category)?.label ?? article.category;
 const altText = article.featured_image_alt || article.title;
+const dateStr = article.published_at
+  ? new Date(article.published_at).toLocaleDateString("cs-CZ", { day: "numeric", month: "long", year: "numeric" })
+  : null;
 ---
 
 <a href={`/${article.slug}/`} class="block group">
@@ -30,9 +33,7 @@ const altText = article.featured_image_alt || article.title;
         style={`object-position: ${fp.x}% ${fp.y}%;`}
       />
     ) : (
-      <div class="w-full h-full flex items-center justify-center text-[var(--color-text-muted)]">
-        <span class="text-3xl opacity-40">📝</span>
-      </div>
+      <div class="h-full w-full bg-[var(--color-bg-soft)]"></div>
     )}
   </div>
   {categoryLabel && (
@@ -46,5 +47,9 @@ const altText = article.featured_image_alt || article.title;
   {article.perex && (
     <p class="text-sm mt-2 text-[var(--color-text-muted)] line-clamp-2">{article.perex}</p>
   )}
-  <p class="text-xs mt-2 text-[var(--color-text-muted)]">{readTime} min čtení</p>
+  <p class="text-xs mt-2 text-[var(--color-text-muted)]">
+    {dateStr && <span>{dateStr}</span>}
+    {dateStr && <span class="mx-1.5">·</span>}
+    <span>{readTime} min čtení</span>
+  </p>
 </a>
