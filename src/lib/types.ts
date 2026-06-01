@@ -23,6 +23,10 @@ export interface Article {
   published_at: string | null;
   last_updated_at: string | null;
   created_at: string;
+  // AEO/AI-fill pole z CMS (zatím prázdná, forward-looking). Až je CMS naplní,
+  // article stránka vyrenderuje viditelnou FAQ sekci + FAQPage schema.
+  faq_items: { question: string; answer: string }[] | null;
+  tldr: string | null;
 }
 
 export interface Category {
