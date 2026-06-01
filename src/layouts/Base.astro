@@ -49,6 +49,10 @@ const {
       publishedTime={publishedTime}
       modifiedTime={modifiedTime}
     />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latinext.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latinext.woff2" crossorigin />
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">

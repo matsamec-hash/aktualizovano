@@ -161,6 +161,29 @@ async function main() {
   lines.push("</IfModule>");
   lines.push("");
 
+  // Static asset caching + compression. Self-hosted fonty mají stabilní jména →
+  // 1 rok immutable. Ostatní assety (css/js/img) 30 dní s revalidací (pagefind
+  // soubory mají stabilní cesty, proto NE immutable). HTML krátce (denní rebuild).
+  // Řeší Lighthouse cache-insight.
+  lines.push("# === Static asset caching ===");
+  lines.push("<IfModule mod_headers.c>");
+  lines.push('  <FilesMatch "\\.(woff2|woff|ttf|otf)$">');
+  lines.push('    Header set Cache-Control "public, max-age=31536000, immutable"');
+  lines.push("  </FilesMatch>");
+  lines.push('  <FilesMatch "\\.(css|js|svg|jpg|jpeg|png|webp|avif|gif|ico)$">');
+  lines.push('    Header set Cache-Control "public, max-age=2592000"');
+  lines.push("  </FilesMatch>");
+  lines.push('  <FilesMatch "\\.html$">');
+  lines.push('    Header set Cache-Control "public, max-age=600, must-revalidate"');
+  lines.push("  </FilesMatch>");
+  lines.push("</IfModule>");
+  lines.push("");
+  lines.push("# === Compression ===");
+  lines.push("<IfModule mod_deflate.c>");
+  lines.push("  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml application/rss+xml");
+  lines.push("</IfModule>");
+  lines.push("");
+
   const out = join(process.cwd(), "public", ".htaccess");
   mkdirSync(join(process.cwd(), "public"), { recursive: true });
   writeFileSync(out, lines.join("\n"), "utf8");
