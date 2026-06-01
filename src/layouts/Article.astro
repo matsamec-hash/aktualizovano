@@ -39,9 +39,10 @@ const publishDate = article.published_at
   ? new Date(article.published_at).toLocaleDateString("cs", { day: "numeric", month: "long", year: "numeric" })
   : "";
 const publishedIso = article.published_at ? new Date(article.published_at).toISOString() : undefined;
-const articleAny = article as Article & { updated_at?: string };
-const modifiedIso = articleAny.updated_at
-  ? new Date(articleAny.updated_at).toISOString()
+// Pozn.: sloupec se jmenuje last_updated_at (ne updated_at — ten v DB neexistoval,
+// takže dateModified vždy padal na published). Až CMS edituje článek, promítne se.
+const modifiedIso = article.last_updated_at
+  ? new Date(article.last_updated_at).toISOString()
   : publishedIso;
 
 const altText = article.featured_image_alt || article.title;
