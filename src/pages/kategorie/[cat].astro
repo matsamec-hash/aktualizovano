@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getArticlesByCategory } from "../../lib/supabase";
 import { siteConfig } from "../../../site.config";
 
@@ -31,6 +32,10 @@ const breadcrumbsLd = {
   jsonLd={breadcrumbsLd}
 >
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <Breadcrumbs
+      items={[{ name: "Domů", href: "/" }, { name: category.label }]}
+      class="mb-6"
+    />
     <header class="mb-10">
       <p class="text-xs uppercase tracking-widest text-[var(--color-text-muted)] mb-2">Rubrika</p>
       <h1 class="font-display text-4xl md:text-5xl font-bold text-[var(--color-text)]">{category.label}</h1>
