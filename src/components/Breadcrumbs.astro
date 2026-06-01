@@ -1,0 +1,32 @@
+---
+// Viditelné breadcrumbs (Domů › Rubrika › Titulek). Schema.org BreadcrumbList
+// JSON-LD se generuje zvlášť v layoutech — tady jen vizuální navigace.
+interface Crumb {
+  name: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  class?: string;
+}
+
+const { items, class: className = "" } = Astro.props;
+---
+
+<nav aria-label="Drobečková navigace" class={`text-xs text-[var(--color-text-muted)] ${className}`}>
+  <ol class="flex flex-wrap items-center gap-1.5">
+    {items.map((item, i) => (
+      <li class="flex items-center gap-1.5 min-w-0">
+        {item.href && i < items.length - 1 ? (
+          <a href={item.href} class="hover:text-[var(--color-accent)] transition-colors whitespace-nowrap">
+            {item.name}
+          </a>
+        ) : (
+          <span class="truncate max-w-[60vw] sm:max-w-xs" aria-current="page">{item.name}</span>
+        )}
+        {i < items.length - 1 && <span aria-hidden="true" class="text-[var(--color-border)]">›</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
