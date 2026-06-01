@@ -18,12 +18,16 @@ const articlesByCategory = siteConfig.categories
     articles: articles.filter((a) => a.category === cat.slug).slice(0, 3),
   }))
   .filter((c) => c.articles.length > 0);
+
+// LCP = první slide hero carouselu → preload jeho obrázku (zbytek se lazy-loaduje).
+const heroLcpImage = heroSlides[0]?.featured_image_url || undefined;
 ---
 
 <Base
   title={`${siteConfig.name} — ${siteConfig.tagline}`}
   description={siteConfig.description}
   canonical={`https://${siteConfig.domain}/`}
+  preloadImage={heroLcpImage}
 >
   {heroSlides.length > 0 && <HeroCarousel articles={heroSlides} />}
 
