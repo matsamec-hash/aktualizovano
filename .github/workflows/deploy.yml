@@ -50,3 +50,24 @@ jobs:
             open -u $FTP_USER,$FTP_PASS $FTP_HOST;
             mirror --reverse --only-newer --parallel=2 dist/ /public_html/;
           "
+
+      - name: Ping IndexNow (Bing / Seznam / Yandex)
+        # IndexNow notifikace o změnách. Klíč je veřejný (key file v public/),
+        # proto v repu, ne v secrets. Fan-out endpoint rozešle všem účastníkům
+        # (vč. Seznam.cz). Selhání NESMÍ shodit deploy → || true.
+        env:
+          INDEXNOW_KEY: "2bb241c4b61fde1a505e5e66ae3b7988"
+        run: |
+          HOST="aktualizovano.cz"
+          # Vytáhni všechny <loc> URL ze sitemap (max 10000/request).
+          URLS=$(grep -oE '<loc>[^<]+</loc>' dist/sitemap-0.xml | sed -E 's#</?loc>##g')
+          COUNT=$(printf '%s\n' "$URLS" | grep -c . || true)
+          echo "Submitting $COUNT URLs to IndexNow"
+          PAYLOAD=$(printf '%s\n' "$URLS" | jq -R . | jq -s \
+            --arg host "$HOST" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg loc "https://$HOST/$INDEXNOW_KEY.txt" \
+            '{host:$host, key:$key, keyLocation:$loc, urlList:.}')
+          curl -s -m 30 -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD" -w "IndexNow HTTP %{http_code}\n" || true
