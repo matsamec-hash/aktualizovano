@@ -21,6 +21,7 @@ export interface Article {
   status: string;
   author_type: string;
   published_at: string | null;
+  last_updated_at: string | null;
   created_at: string;
 }
 
