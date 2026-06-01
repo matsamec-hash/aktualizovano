@@ -29,6 +29,32 @@ const {
 const canonicalUrl = canonicalProp ?? `https://${siteConfig.domain}/${slug}`;
 const ogImage = image || `https://${siteConfig.domain}/og-default.jpg`;
 
+// Brand suffix do <title> (ne do og/twitter — sociální preview čistší bez
+// brandu). Stránky, které brand už mají (homepage, kategorie), nepřebrandujeme.
+const pageTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+
+// Meta description: dekódovat HTML entity (&nbsp; apod.), strip tagů, sjednotit
+// whitespace a oříznout na ≤160 znaků na hranici slova. seo_description/perex
+// z CMS bývají useknuté uprostřed věty a obsahují syrové entity.
+function cleanDescription(raw: string | undefined): string {
+  const decoded = (raw ?? "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;|&apos;|&rsquo;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&hellip;/g, "…")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (decoded.length <= 160) return decoded;
+  const cut = decoded.slice(0, 157);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${(lastSpace > 100 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:–—-]+$/, "")}…`;
+}
+const metaDescription = cleanDescription(description);
+
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -65,8 +91,8 @@ const allJsonLd = jsonLd
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content={siteConfig.colors.primary} />
-<title>{title}</title>
-<meta name="description" content={description} />
+<title>{pageTitle}</title>
+<meta name="description" content={metaDescription} />
 {robots && <meta name="robots" content={robots} />}
 <link rel="canonical" href={canonicalUrl} />
 
@@ -74,7 +100,7 @@ const allJsonLd = jsonLd
 <link rel="dns-prefetch" href="https://cdn.samecdigital.com" />
 
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content={type} />
@@ -85,7 +111,7 @@ const allJsonLd = jsonLd
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImage} />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
