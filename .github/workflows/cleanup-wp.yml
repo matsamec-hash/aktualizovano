@@ -1,0 +1,93 @@
+name: Cleanup legacy WordPress
+
+# Jednorázový úklid staré WordPress instalace z /public_html/ po cutoveru na
+# statický Astro web. Pouští se RUČNĚ (workflow_dispatch).
+#   mode=list   → jen vypíše obsah /public_html/ + WP-related soubory (read-only)
+#   mode=delete → smaže POUZE explicitní WP položky (vyžaduje confirm=DELETE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "list (read-only) nebo delete"
+        type: choice
+        options: [list, delete]
+        default: list
+      confirm:
+        description: 'Pro mazání napiš přesně: DELETE'
+        type: string
+        default: ""
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: List /public_html (read-only)
+        if: ${{ github.event.inputs.mode == 'list' }}
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes;
+            set ssl:verify-certificate no; set cmd:fail-exit no;
+            open -u $FTP_USER,$FTP_PASS $FTP_HOST;
+            echo '===== TOP-LEVEL /public_html/ =====';
+            cls -1 /public_html/;
+            echo '';
+            echo '===== WP-related (recursive top dirs) =====';
+            cls -1 /public_html/wp-admin/ 2>/dev/null;
+            cls -1 /public_html/wp-includes/ 2>/dev/null;
+            cls -1 /public_html/wp-content/ 2>/dev/null;
+          "
+
+      - name: Guard — confirm required for delete
+        if: ${{ github.event.inputs.mode == 'delete' && github.event.inputs.confirm != 'DELETE' }}
+        run: |
+          echo "::error::Mazání NEspuštěno — input 'confirm' musí být přesně 'DELETE'."
+          exit 1
+
+      - name: Delete legacy WordPress (explicit allowlist)
+        if: ${{ github.event.inputs.mode == 'delete' && github.event.inputs.confirm == 'DELETE' }}
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes; set ftp:ssl-force yes; set ftp:ssl-protect-data yes;
+            set ssl:verify-certificate no; set cmd:fail-exit no;
+            open -u $FTP_USER,$FTP_PASS $FTP_HOST;
+            echo '--- removing WP directories ---';
+            rm -r /public_html/wp-admin;
+            rm -r /public_html/wp-includes;
+            rm -r /public_html/wp-content;
+            echo '--- removing WP root files ---';
+            rm /public_html/index.php;
+            rm /public_html/xmlrpc.php;
+            rm /public_html/wp-activate.php;
+            rm /public_html/wp-blog-header.php;
+            rm /public_html/wp-comments-post.php;
+            rm /public_html/wp-config.php;
+            rm /public_html/wp-config-sample.php;
+            rm /public_html/wp-cron.php;
+            rm /public_html/wp-links-opml.php;
+            rm /public_html/wp-load.php;
+            rm /public_html/wp-login.php;
+            rm /public_html/wp-mail.php;
+            rm /public_html/wp-settings.php;
+            rm /public_html/wp-signup.php;
+            rm /public_html/wp-trackback.php;
+            rm /public_html/readme.html;
+            rm /public_html/license.txt;
+            echo '--- done; remaining top-level: ---';
+            cls -1 /public_html/;
+          "
