@@ -134,6 +134,7 @@ const articleJsonLd = {
 const faqItems = (article.faq_items || []).filter(
   (f) => f && typeof f.question === "string" && f.question.trim() && typeof f.answer === "string" && f.answer.trim(),
 );
+const tldr = (article.tldr || "").trim();
 const faqLd =
   faqItems.length > 0
     ? {
@@ -244,6 +245,13 @@ const breadcrumbsLd = {
           </figcaption>
         )}
       </figure>
+    )}
+
+    {tldr && (
+      <aside class="mb-8 rounded-xl border-l-4 bg-[var(--color-bg-soft)] px-5 py-4" style={`border-color: var(--color-accent)`} aria-label="Shrnutí článku">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-1.5">Ve zkratce</p>
+        <p class="text-[var(--color-text)] leading-relaxed">{tldr}</p>
+      </aside>
     )}
 
     <div class="article-content prose-base text-[var(--color-text)] leading-relaxed" set:html={safeContent} />
