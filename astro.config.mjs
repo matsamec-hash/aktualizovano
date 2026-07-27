@@ -44,7 +44,12 @@ export default defineConfig({
   image: {
     // Autorizace remote CDN, ze které build-time optimalizujeme obrázky (sharp).
     // CDN sám resize neumí → varianty generujeme lokálně do dist/_astro/.
-    remotePatterns: [{ protocol: 'https', hostname: 'cdn.samecdigital.com' }],
+    // Pexels: featured foto z auto-generace se ukládá jako přímá images.pexels.com URL
+    // → build ji stáhne a zoptimalizuje lokálně (žádný SFTP/CDN upload z orchestrátoru).
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.samecdigital.com' },
+      { protocol: 'https', hostname: 'images.pexels.com' },
+    ],
   },
   integrations: [
     sitemap({
