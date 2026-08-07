@@ -146,9 +146,11 @@ async function main() {
   lines.push("# WP search ?s=X → Pagefind /hledat?q=X");
   lines.push("RewriteCond %{QUERY_STRING} ^s=(.+)$");
   lines.push("RewriteRule ^$ /hledat?q=%1 [R=301,L]");
-  lines.push("# Tag / author archives — not migrated, route to homepage");
-  lines.push("RewriteRule ^tag/.*$ / [R=301,L]");
-  lines.push("RewriteRule ^author/.*$ / [R=301,L]");
+  lines.push("# Tag / author archives — not migrated. 410 Gone (ne 301→homepage:");
+  lines.push("# redirect-na-homepage Google hodnotí jako soft 404 a drží v reportu");
+  lines.push("# \"neindexováno\"; 410 je trvale zahodí a report se zmenší).");
+  lines.push("RewriteRule ^tag/.*$ - [G,L]");
+  lines.push("RewriteRule ^author/.*$ - [G,L]");
   lines.push("# wp-admin probes (bots) — silently route to homepage");
   lines.push("RewriteRule ^wp-admin/?.*$ / [R=301,L]");
   lines.push("RewriteRule ^wp-login\\.php$ / [R=301,L]");
