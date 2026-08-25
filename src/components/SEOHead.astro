@@ -26,7 +26,15 @@ const {
   publishedTime,
   modifiedTime,
 } = Astro.props;
-const canonicalUrl = canonicalProp ?? `https://${siteConfig.domain}/${slug}`;
+// Web běží na trailingSlash: 'always' → kanonická URL MUSÍ mít koncové lomítko,
+// jinak ukazuje na URL, která 301 redirectuje (Ahrefs: "canonical points to redirect").
+// Bez slug i bez explicitní canonical (404) kanonickou raději nevypisujeme, než
+// abychom celou stránku kanonizovali na homepage.
+const withTrailingSlash = (url: string): string =>
+  /\/$|\.[a-z0-9]+$/i.test(url) ? url : `${url}/`;
+const canonicalBase = canonicalProp ?? (slug ? `https://${siteConfig.domain}/${slug}` : null);
+const canonicalUrl = canonicalBase ? withTrailingSlash(canonicalBase) : null;
+const ogUrl = canonicalUrl ?? `https://${siteConfig.domain}/`;
 const ogImage = image || `https://${siteConfig.domain}/og-default.jpg`;
 
 // Brand suffix do <title> (ne do og/twitter — sociální preview čistší bez
@@ -74,7 +82,7 @@ const websiteJsonLd = {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `https://${siteConfig.domain}/hledat?q={search_term_string}`,
+      "urlTemplate": `https://${siteConfig.domain}/hledat/?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
@@ -94,7 +102,7 @@ const allJsonLd = jsonLd
 <title>{pageTitle}</title>
 <meta name="description" content={metaDescription} />
 {robots && <meta name="robots" content={robots} />}
-<link rel="canonical" href={canonicalUrl} />
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
 <link rel="preconnect" href="https://cdn.samecdigital.com" crossorigin />
 <link rel="dns-prefetch" href="https://cdn.samecdigital.com" />
@@ -102,7 +110,7 @@ const allJsonLd = jsonLd
 <meta property="og:title" content={title} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={ogImage} />
-<meta property="og:url" content={canonicalUrl} />
+<meta property="og:url" content={ogUrl} />
 <meta property="og:type" content={type} />
 <meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:locale" content="cs_CZ" />

@@ -23,7 +23,10 @@ const { article, relatedArticles, others = [] } = Astro.props;
 const readTime = Math.max(1, Math.ceil((article.content?.length || 0) / 1500));
 
 const linkedRaw = autoLinkContent(article.content || "", article, others);
-const preprocessed = preprocessContent(linkedRaw);
+const preprocessed = preprocessContent(linkedRaw)
+  // WP obsah občas nese vlastní <h1> (mezititulky) → na stránce by byly 2+ H1.
+  // H1 je titulek článku v šabloně, obsahové nadpisy patří o úroveň níž.
+  .replace(/<(\/?)h1(\b[^>]*)>/gi, "<$1h2$2>");
 
 const safeContent = sanitizeHtml(preprocessed, {
   allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "figure", "figcaption", "iframe", "video", "source"]),
@@ -62,7 +65,7 @@ if (article.featured_image_url) {
     // Mrtvá/nepodporovaná URL → fallback na originál.
   }
 }
-const url = `https://${siteConfig.domain}/${article.slug}`;
+const url = `https://${siteConfig.domain}/${article.slug}/`;
 const categoryConfig = siteConfig.categories.find((c) => c.slug === article.category);
 
 // NewsArticle pro běžné zpravodajství; evergreen obsah zůstává Article.

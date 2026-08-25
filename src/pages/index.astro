@@ -45,6 +45,7 @@ if (heroLcpImage) {
   preloadImageSrcset={heroPreloadSrcset}
   preloadImageSizes={IMG_SIZES.hero}
 >
+  <h1 class="sr-only">{siteConfig.name} — {siteConfig.tagline}</h1>
   {heroSlides.length > 0 && <HeroCarousel articles={heroSlides} />}
 
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

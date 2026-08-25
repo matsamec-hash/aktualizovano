@@ -63,15 +63,20 @@ function injectLinkInSafeSegment(
 ): { changed: boolean; html: string } {
   const escaped = escapeRegex(trigger);
   const re = new RegExp(`(?<![\\p{L}\\p{N}])(${escaped})(?![\\p{L}\\p{N}])`, "iu");
-  const match = segment.match(re);
-  if (!match || match.index === undefined) return { changed: false, html: segment };
-  const matchedText = match[1];
-  const before = segment.slice(0, match.index);
-  const after = segment.slice(match.index + matchedText.length);
-  return {
-    changed: true,
-    html: `${before}<a href="${url}" class="auto-link">${matchedText}</a>${after}`,
-  };
+  // Segment stále obsahuje značky (<img alt="…">, <p class="…">). Kdyby se
+  // trigger trefil do atributu, vložil by se odkaz doprostřed hodnoty a rozbil
+  // HTML → hledáme výhradně v textových uzlech.
+  const parts = segment.split(/(<[^>]*>)/);
+  for (let i = 0; i < parts.length; i += 2) {
+    const match = parts[i].match(re);
+    if (!match || match.index === undefined) continue;
+    const matchedText = match[1];
+    const before = parts[i].slice(0, match.index);
+    const after = parts[i].slice(match.index + matchedText.length);
+    parts[i] = `${before}<a href="${url}" class="auto-link">${matchedText}</a>${after}`;
+    return { changed: true, html: parts.join("") };
+  }
+  return { changed: false, html: segment };
 }
 
 export function autoLinkContent(
@@ -84,7 +89,7 @@ export function autoLinkContent(
   const candidates = rankCandidates(current, others);
   if (candidates.length === 0) return html;
 
-  const tokens = html.split(SAFE_SPLIT_RE);
+  let working = html;
   const linkedUrls = new Set<string>();
 
   for (const candidate of candidates) {
@@ -93,6 +98,9 @@ export function autoLinkContent(
 
     const triggers = triggersFor(candidate.article);
     let injected = false;
+    // Re-split před každým kandidátem: odkaz vložený v předchozím kole je tak
+    // chráněný token a další trigger se do něj (do jeho href) nemůže vnořit.
+    const tokens = working.split(SAFE_SPLIT_RE);
 
     for (const trigger of triggers) {
       if (injected) break;
@@ -106,7 +114,9 @@ export function autoLinkContent(
         }
       }
     }
+
+    if (injected) working = tokens.join("");
   }
 
-  return tokens.join("");
+  return working;
 }

@@ -63,5 +63,15 @@ export function preprocessContent(html: string): string {
     return `<img${next}>`;
   });
 
+  // Interní odkazy v obsahu z CMS bývají psané bez koncového lomítka, web ale
+  // běží na trailingSlash: 'always' → každý takový odkaz je 301 navíc.
+  out = out.replace(
+    /(<a\b[^>]*\bhref=")(\/[^"?#]*?)(")/gi,
+    (match, before, path: string, after) => {
+      if (path.endsWith("/") || /\.[a-z0-9]{2,5}$/i.test(path)) return match;
+      return `${before}${path}/${after}`;
+    },
+  );
+
   return out;
 }
