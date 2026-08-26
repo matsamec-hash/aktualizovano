@@ -2,8 +2,13 @@ import { createClient } from "@supabase/supabase-js";
 import { siteConfig } from "../../site.config";
 import type { Article } from "./types";
 
-const SUPABASE_URL = "https://obhypfuzmknvmknskdwh.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iaHlwZnV6bWtudm1rbnNrZHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2MjYyNDEsImV4cCI6MjA5MjIwMjI0MX0.rjcXZpE7Kqcbt6prqxT0UXFCnrDYAvlCldUwtKnX0to";
+// Články se čtou ze self-hostované instance — tam píše admin.samecdigital.com.
+// Dřív tu byla natvrdo cloudová instance, takže se web renderoval z databáze,
+// do které CMS nepíše (tichý split-brain).
+// Před přepnutím doplněno 7 článků, které existovaly jen v cloudu (eSIM/Airalo),
+// aby přepnutím nezmizely. Po doplnění mají obě instance 140 publikovaných.
+const SUPABASE_URL = "https://supabase.samecdigital.com";
+const SUPABASE_ANON_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4MDY5NTYwMCwiZXhwIjo0OTM2MzY5MjAwLCJyb2xlIjoiYW5vbiJ9.OIvu-YM9AzPKdCngJ2tHPl2emYP8OFxvYhTtAAErnKk";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
