@@ -58,7 +58,6 @@ export const siteConfig = {
   ],
 
   networkSites: [
-    { name: "LiveTime", domain: "livetime.cz" },
     { name: "Tradingworld", domain: "tradingworld.cz" },
     { name: "Žena žije", domain: "zenazije.cz" },
     { name: "WiseNews", domain: "wisenews.cz" },
