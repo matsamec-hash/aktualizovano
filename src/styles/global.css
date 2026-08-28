@@ -195,3 +195,62 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+/* Tabulky v článcích — v CMS obsahu se objevují srovnávací tabulky, které do té
+   doby neměly žádný styl (bezrámečkový browser default) a na mobilu přetékaly.
+   Vodorovné rolování řeší wrapper .table-scroll z preprocessContent(). */
+.article-content .table-scroll {
+  overflow-x: auto;
+  margin: 1.75rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  line-height: 1.45;
+}
+
+.article-content .table-scroll table {
+  margin: 0;
+  min-width: 34rem;
+}
+
+.article-content thead th {
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.article-content th,
+.article-content td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.article-content tbody tr:nth-child(even) {
+  background: var(--color-bg-soft);
+}
+
+.article-content tbody tr:hover {
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+}
+
+.article-content td:not(:first-child) {
+  white-space: nowrap;
+}
+
+.article-content caption {
+  caption-side: bottom;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: left;
+  padding-top: 0.5rem;
+}

@@ -63,6 +63,15 @@ export function preprocessContent(html: string): string {
     return `<img${next}>`;
   });
 
+  // Srovnávací tabulky z CMS na mobilu přetékaly mimo viewport. Obalení do
+  // rolovacího divu je čistší než `display:block` na samotné <table>, které by
+  // rozbilo sdílené šířky sloupců. Už obalené tabulky se přeskočí.
+  out = out.replace(
+    /(<div[^>]*class="[^"]*table-scroll[^"]*"[^>]*>\s*)?<table\b[\s\S]*?<\/table>/gi,
+    (match, alreadyWrapped) =>
+      alreadyWrapped ? match : `<div class="table-scroll">${match}</div>`,
+  );
+
   // Interní odkazy v obsahu z CMS bývají psané bez koncového lomítka, web ale
   // běží na trailingSlash: 'always' → každý takový odkaz je 301 navíc.
   out = out.replace(
