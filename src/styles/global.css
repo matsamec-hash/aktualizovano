@@ -254,3 +254,135 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   padding-top: 0.5rem;
 }
+
+/*
+ * Grafy v článcích. Stavěné z <div>/<span> s inline stylem, protože obsah z CMS
+ * prochází sanitize-html, které <svg> zahazuje — inline SVG by se nevykreslilo.
+ * Data nese jen inline width/height v %, vzhled drží tyhle třídy.
+ *
+ * Pravidla: jedna série = jedna barva (brandová akcentní, ověřená validátorem
+ * na bílém podkladu). Odhadované/necílové hodnoty dostanou neutrální šedou
+ * A ZÁROVEŇ textovou značku „(cíl)" — nikdy ne rozlišení jen barvou.
+ * Hodnoty jsou popsané u každého sloupce, plnou tabulku má článek vedle grafu.
+ */
+.article-content .chart {
+  margin: 2rem 0;
+}
+
+.article-content .chart-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: left;
+  color: var(--color-text);
+  margin: 0 0 0.9rem;
+}
+
+.article-content .chart-note {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--color-text-muted);
+  margin: 0.75rem 0 0;
+}
+
+/* --- vodorovné pruhy (porovnání velikostí) --- */
+.article-content .chart-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.article-content .chart-row {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 8.5rem) 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.article-content .chart-label {
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.article-content .chart-track {
+  display: block;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--color-bg-soft);
+}
+
+.article-content .chart-bar {
+  display: block;
+  height: 100%;
+  min-width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: var(--color-accent);
+}
+
+.article-content .chart-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+/* --- svislé sloupce (vývoj v čase) --- */
+.article-content .chart-cols {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.article-content .chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.article-content .chart-col-plot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 130px;
+}
+
+.article-content .chart-col-bar {
+  /* Úzká značka: široký sytý blok je vizuální křik, ne graf. */
+  width: 100%;
+  max-width: 56px;
+  min-height: 3px;
+  border-radius: 4px 4px 0 0;
+  background: var(--color-accent);
+}
+
+.article-content .chart-col-label {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Neutrální varianta = hodnota není naměřená (cíl, nedokončený rok).
+   Vždy doprovázená textovou značkou v popisku, ne jen barvou. */
+.article-content .chart-bar.is-muted,
+.article-content .chart-col-bar.is-muted {
+  background: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .article-content .chart-row {
+    grid-template-columns: minmax(4.5rem, 6.5rem) 1fr auto;
+    gap: 0.45rem;
+  }
+  .article-content .chart-label,
+  .article-content .chart-value {
+    font-size: 0.72rem;
+  }
+}
