@@ -2,9 +2,9 @@ import { createClient } from "@supabase/supabase-js";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
-const SUPABASE_URL = "https://obhypfuzmknvmknskdwh.supabase.co";
+const SUPABASE_URL = "https://supabase.samecdigital.com";
 const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iaHlwZnV6bWtudm1rbnNrZHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2MjYyNDEsImV4cCI6MjA5MjIwMjI0MX0.rjcXZpE7Kqcbt6prqxT0UXFCnrDYAvlCldUwtKnX0to";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc4MDY5NTYwMCwiZXhwIjo0OTM2MzY5MjAwLCJyb2xlIjoiYW5vbiJ9.OIvu-YM9AzPKdCngJ2tHPl2emYP8OFxvYhTtAAErnKk";
 const SITE_ID = "63253275-f6ac-4c50-8755-c8d385b758ff";
 
 type Redirect = {
