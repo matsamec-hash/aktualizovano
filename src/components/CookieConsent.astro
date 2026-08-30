@@ -366,27 +366,40 @@ const PLATNOST_DNI = 365;
   .cc-kategorie small { display: block; margin-top: 2px; font-size: 12px; line-height: 1.45; opacity: 0.75; }
   .cc-detail .cc-tlacitka { justify-content: flex-end; }
 
+  /* Plovoucí spouštěč. Vzhled je schválně nezávislý na webu — globální styly
+     pro `button` se sem jinak dostanou a rozbijí ho: na army-svetu prosákl
+     `padding: 1px 6px`, na nicextře `padding: 11px 20px`, které z kolečka
+     udělalo elipsu. Proto vlastní reset a žádné dědění. */
   .cc-spoustec {
     position: fixed;
     bottom: 12px;
     left: 12px;
     z-index: 999;
+    box-sizing: border-box;
     display: grid;
     place-items: center;
     width: 36px;
     height: 36px;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    line-height: 0;
+    -webkit-appearance: none;
+    appearance: none;
     border-radius: 50%;
-    /* Fallbacky: agro-svět má barvy natvrdo, ostatní weby přes --cc-* proměnné,
-       které jsou ale deklarované na .cc — sem už nedosáhnou. */
-    border: 1px solid color-mix(in srgb, var(--cc-text, #fff) 25%, transparent);
-    background: var(--cc-pozadi, #1a1a1a);
-    color: var(--cc-text, #fff);
-    opacity: 0.65;
+    /* Světlý žeton se stínem místo dřívějšího `opacity: 0.65` na celém
+       tlačítku — průhlednost srážela i kontrast piktogramu (~3,9 : 1).
+       Takhle má piktogram na bílé 8,6 : 1 a od stránky ho dělí stín. */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    color: #4b5563;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 6px 16px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: color 0.15s, box-shadow 0.15s;
   }
-  .cc-spoustec:hover { opacity: 1; }
-  .cc-spoustec:focus-visible { opacity: 1; outline: 2px solid var(--cc-odkaz, currentColor); outline-offset: 2px; }
+  .cc-spoustec svg { display: block; }
+  .cc-spoustec:hover { color: #111827; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 8px 22px rgba(0, 0, 0, 0.14); }
+  .cc-spoustec:focus-visible { color: #111827; outline: 2px solid currentColor; outline-offset: 2px; }
   .cc-spoustec[hidden] { display: none; }
   @media print { .cc-spoustec { display: none; } }
 
