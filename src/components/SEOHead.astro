@@ -101,7 +101,7 @@ const allJsonLd = jsonLd
 <meta name="theme-color" content={siteConfig.colors.primary} />
 <title>{pageTitle}</title>
 <meta name="description" content={metaDescription} />
-{robots && <meta name="robots" content={robots} />}
+<meta name="robots" content={robots ?? "max-image-preview:large"} />
 {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
 <link rel="preconnect" href="https://cdn.samecdigital.com" crossorigin />
