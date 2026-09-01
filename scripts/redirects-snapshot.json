@@ -1,0 +1,848 @@
+[
+  {
+    "from_url": "https://aktualizovano.cz/category/sport/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/zabava/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/uncategorized/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/vice/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/novinky/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/sport/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/domaci/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/zahranicni/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/zajimavosti/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/finance/archivy/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/krypto/archivy/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/kultura/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/investice/archivy/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/aplikace/archivy/",
+    "to_url": "/tech/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/tech/archivy/",
+    "to_url": "/tech/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/automoto/archivy/",
+    "to_url": "/automoto/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/subaru-club/archivy/",
+    "to_url": "/automoto/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/urban-legend/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/ostatni/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/produkt/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/cestovani-cestovani/archivy/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/destinace/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/18/",
+    "to_url": "/archived/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/l-sk/c-453204e88d4169e9cfc5537709e059e4baa755",
+    "to_url": "https://aktualizovano.cz/",
+    "code": 301,
+    "source": "wikipedia-critical"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/l-cs/c-74354e9dc09ebaedc266288d39090bb29c41e",
+    "to_url": "TBD",
+    "code": 302,
+    "source": "affiliate"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/l-sk/source-151963dfa627a021a068778ad7f6252344abf0",
+    "to_url": "N/A",
+    "code": 302,
+    "source": "affiliate"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/cestovani/archivy/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/top5/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zabava/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/uncategorized/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/vice/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/novinky/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/sport/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/domaci/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zahranicni/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zajimavosti/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/finance/archivy/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/krypto/archivy/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/kultura/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/investice/archivy/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/aplikace/archivy/",
+    "to_url": "https://aktualizovano.cz/tech/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/tech/archivy/",
+    "to_url": "https://aktualizovano.cz/tech/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/automoto/archivy/",
+    "to_url": "https://aktualizovano.cz/automoto/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/subaru-club/archivy/",
+    "to_url": "https://aktualizovano.cz/automoto/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/urban-legend/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/ostatni/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/produkt/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/cestovani-cestovani/archivy/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/co-poslouchat/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/destinace/archivy/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/18/archivy/",
+    "to_url": "https://aktualizovano.cz/archived/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/bulvar/archivy/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/obchod/archivy/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/cestovani/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/top5/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zabava/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/uncategorized/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/vice/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/novinky/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/domaci/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zahranicni/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/zajimavosti/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/finance/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/krypto/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/kultura/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/investice/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/aplikace/",
+    "to_url": "https://aktualizovano.cz/tech/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/tech/",
+    "to_url": "https://aktualizovano.cz/tech/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/automoto/",
+    "to_url": "https://aktualizovano.cz/automoto/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/subaru-club/",
+    "to_url": "https://aktualizovano.cz/automoto/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/urban-legend/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/ostatni/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/produkt/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/cestovani-cestovani/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/co-poslouchat/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/destinace/",
+    "to_url": "https://aktualizovano.cz/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/18/",
+    "to_url": "https://aktualizovano.cz/archived/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/bulvar/",
+    "to_url": "https://aktualizovano.cz/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/category/obchod/",
+    "to_url": "https://aktualizovano.cz/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/1/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/3/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/29/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/2/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/5/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/page/4/",
+    "to_url": "https://aktualizovano.cz/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/4/",
+    "to_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/5/",
+    "to_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/2/",
+    "to_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/3/",
+    "to_url": "https://aktualizovano.cz/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/2/",
+    "to_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/3/",
+    "to_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/4/",
+    "to_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/5/",
+    "to_url": "https://aktualizovano.cz/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/category/co-poslouchat/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/destinace/archivy/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/18/archivy/",
+    "to_url": "/archived/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/bulvar/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/obchod/archivy/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/cestovani/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/top5/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/zabava/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/uncategorized/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/vice/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/novinky/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/sport/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/domaci/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/zahranicni/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/zajimavosti/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/finance/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/krypto/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/kultura/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/investice/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/aplikace/",
+    "to_url": "/tech/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/tech/",
+    "to_url": "/tech/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/automoto/",
+    "to_url": "/automoto/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/subaru-club/",
+    "to_url": "/automoto/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/urban-legend/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/cestovani/archivy/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/top5/archivy/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-archive"
+  },
+  {
+    "from_url": "/category/ostatni/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/produkt/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/cestovani-cestovani/",
+    "to_url": "/cestovani/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/co-poslouchat/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/bulvar/",
+    "to_url": "/zabava/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/category/obchod/",
+    "to_url": "/finance/",
+    "code": 301,
+    "source": "category-remap"
+  },
+  {
+    "from_url": "/page/1/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/page/3/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/page/29/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/page/2/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/page/5/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/page/4/",
+    "to_url": "/page/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top-5-tipu-na-netflix-serialy/4/",
+    "to_url": "/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top-5-tipu-na-netflix-serialy/5/",
+    "to_url": "/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top-5-tipu-na-netflix-serialy/2/",
+    "to_url": "/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top-5-tipu-na-netflix-serialy/3/",
+    "to_url": "/top-5-tipu-na-netflix-serialy/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/2/",
+    "to_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/3/",
+    "to_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/4/",
+    "to_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/5/",
+    "to_url": "/top5-nejbohatsi-domaci-mazlicci-ktere-zvire-vlastni-vilu-po-madone-a-vice-nez-11-miliard/",
+    "code": 301,
+    "source": "pagination"
+  },
+  {
+    "from_url": "/l-sk/c-453204e88d4169e9cfc5537709e059e4baa755",
+    "to_url": "/",
+    "code": 301,
+    "source": "wikipedia-critical"
+  },
+  {
+    "from_url": "/co-je-asmr-a-jak-vam-muze-zmenit-zivot",
+    "to_url": "/co-je-asmr-a-jak-vam-muze-zmenit-zivot/",
+    "code": 301,
+    "source": "wikipedia-critical"
+  }
+]
