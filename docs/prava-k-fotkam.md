@@ -56,34 +56,20 @@ Ponechané fotky podle poskytovatele: unsplash 52, pexels 22, pixabay 3, nasa 1.
 | důvod | počet |
 | --- | ---: |
 | původ se nepodařilo doložit | 166 |
+| cizí autor přímo v metadatech, licence nedoložená | 15 |
 | PR/klientská fotka bez doloženého svolení | 10 |
 | snímek obrazovky cizího webu/aplikace bez doloženého svolení | 7 |
 | BMW PressClub — tisková fotka bez doloženého svolení | 7 |
 | Shutterstock — „No use without permission“ přímo v metadatech | 5 |
+| Unsplash — fotka už na Unsplash není (404), původ nelze doložit | 5 |
 | tisková fotka firmy bez doloženého svolení | 5 |
 | Discovery Communications — užití omezené na propagaci pořadu | 4 |
 | Daria Ostapenko — licence nedohledatelná (na Commons není), navíc rozpoznatelné osoby | 4 |
-| cizí autor v metadatech (rights: Bernard Radvaner; CopyrightNotice: Bernard Radvaner; Copyright: Bernard Radva | 3 |
 | Lukas Wagneter — „All Rights Reserved“ přímo v metadatech | 3 |
-| cizí autor v metadatech (creator: Romana Mazalová), licence nedoložená | 3 |
-| cizí autor v metadatech (creator: Jan Machač; Artist: Jan Machač), licence nedoložená | 2 |
+| Pexels — fotka už na Pexels není (404), licenci nelze doložit | 2 |
 | Adobe Stock — placená licence, kterou nemáme doloženou | 2 |
-| Pexels: fotka 3689634 už na Pexels není (HTTP 404) → licenci nelze doložit | 1 |
-| cizí autor v metadatech (rights: ZWILLING J.A Henckels AG Gruenewalder Strasse 14-22 42657 Solingen; Copyright | 1 |
-| cizí autor v metadatech (creator: unknown), licence nedoložená | 1 |
-| cizí autor v metadatech (creator: UG1; By-line: UG1; Artist: UG1), licence nedoložená | 1 |
-| Unsplash: fotka PUldfCtEoCk už na Unsplash není (HTTP 404) → původ nelze doložit | 1 |
-| Unsplash: fotka 2gDwlIim3Uw už na Unsplash není (HTTP 404) → původ nelze doložit | 1 |
 | Getty/iStock — placená licence, kterou nemáme doloženou | 1 |
-| Unsplash: fotka aIlAhLdwk2g už na Unsplash není (HTTP 404) → původ nelze doložit | 1 |
-| Unsplash: fotka Ni4cMceBcds už na Unsplash není (HTTP 404) → původ nelze doložit | 1 |
-| cizí autor v metadatech (rights: Copyright (C) Andrey Popov; CopyrightNotice: Copyright (C) Andrey Popov; Copy | 1 |
 | Envato Elements — placená licence, kterou nemáme doloženou | 1 |
-| cizí autor v metadatech (rights: @drazen_zigic; CopyrightNotice: @drazen_zigic; Copyright: @drazen_zigic), lic | 1 |
-| Pexels: fotka 2068975 už na Pexels není (HTTP 404) → licenci nelze doložit | 1 |
-| cizí autor v metadatech (rights: Yeko Photo Studio; CopyrightNotice: Yeko Photo Studio; Copyright: Yeko Photo  | 1 |
-| Unsplash: fotka WoX2yEt9WCA už na Unsplash není (HTTP 404) → původ nelze doložit | 1 |
-| cizí autor v metadatech (rights: (c) EveNue Photography www.evenue.cz; CopyrightNotice: (c) EveNue Photography | 1 |
 
 ## ⏳ Zbývá: úklid v CMS a na CDN
 
