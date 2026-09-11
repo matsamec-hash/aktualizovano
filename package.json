@@ -14,7 +14,8 @@
     "check": "astro check",
     "astro": "astro",
     "test": "vitest run",
-    "kontrola-fotek": "node scripts/kontrola-fotek.mjs"
+    "kontrola-fotek": "node scripts/kontrola-fotek.mjs",
+    "kontrola-atribuce": "node scripts/kontrola-atribuce.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",

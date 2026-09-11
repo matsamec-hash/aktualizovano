@@ -3,6 +3,7 @@ import { siteConfig } from "../../site.config";
 import type { Article } from "../lib/types";
 import ResponsiveImage from "./ResponsiveImage.astro";
 import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
+import { showableImage } from "../lib/photo-credits";
 
 interface Props {
   articles: Article[];
@@ -11,8 +12,10 @@ interface Props {
 const { articles } = Astro.props;
 const slides = articles.slice(0, 4);
 
+// Fotka bez doloženého kreditu se nevykreslí — viz ArticleCard.astro.
 function meta(a: Article) {
   return {
+    cover: showableImage(a),
     cat: siteConfig.categories.find((c) => c.slug === a.category)?.label ?? a.category,
     alt: a.featured_image_alt || a.title,
     readTime: Math.max(1, Math.ceil((a.content?.length || 0) / 1500)),
@@ -33,9 +36,9 @@ function meta(a: Article) {
             i === 0 ? "opacity-100" : "opacity-0 pointer-events-none",
           ]}
         >
-          {article.featured_image_url ? (
+          {m.cover ? (
             <ResponsiveImage
-              src={article.featured_image_url}
+              src={m.cover}
               alt={m.alt}
               widths={IMG_WIDTHS.hero}
               sizes={IMG_SIZES.hero}

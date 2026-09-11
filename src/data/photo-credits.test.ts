@@ -5,12 +5,14 @@ import { PHOTO_CREDITS } from "./photo-credits";
 import soupis from "./photo-inventory.json";
 import {
   articleCredits,
+  coverCredits,
   creditFor,
   creditFromDb,
   isDocumentedCredit,
   isRealAuthorName,
   mayShowImage,
   normalizeImageKey,
+  showableImage,
   stripUncreditedImages,
 } from "../lib/photo-credits";
 
@@ -232,5 +234,119 @@ describe("blok Fotografie", () => {
         content: "<p>text</p>",
       }),
     ).toEqual([]);
+  });
+});
+
+/**
+ * Karty ve výpisech (homepage, rubriky, „mohlo by vás zajímat").
+ *
+ * 11. 9. 2026 měla homepage 18 cover fotek a nula jmen autorů: kredit uměla
+ * jen šablona detailu a karty sahaly na `featured_image_url` přímo. Fotka na
+ * kartě je přitom stejné užití díla jako fotka v článku.
+ */
+describe("karty ve výpisech", () => {
+  const doloz = Object.keys(PHOTO_CREDITS)[0]!;
+
+  it("karta bez doloženého kreditu obrázek nevykreslí", () => {
+    expect(
+      showableImage({
+        featured_image_url: "https://cdn.samecdigital.com/nic.jpg",
+        featured_image_credit: null,
+      }),
+    ).toBeNull();
+    // „archiv" v CMS není jméno — fotka se nesmí objevit ani na kartě.
+    expect(
+      showableImage({
+        featured_image_url: "https://cdn.samecdigital.com/nic.jpg",
+        featured_image_credit: { provider: "upload", photographer_name: "archiv" },
+      }),
+    ).toBeNull();
+    expect(showableImage({ featured_image_url: null })).toBeNull();
+    expect(showableImage(null)).toBeNull();
+  });
+
+  it("karta s doloženým kreditem obrázek vykreslí", () => {
+    expect(showableImage({ featured_image_url: doloz, featured_image_credit: null })).toBe(doloz);
+    expect(
+      showableImage({
+        featured_image_url: "https://cdn.samecdigital.com/nic.jpg",
+        featured_image_credit: {
+          provider: "pexels",
+          photographer_name: "Jimmy Chan",
+          source_url: "https://www.pexels.com/photo/2105927/",
+        },
+      }),
+    ).toBe("https://cdn.samecdigital.com/nic.jpg");
+  });
+
+  it("blok Fotografie pod výpisem uvede každého autora jednou", () => {
+    const [a, b] = Object.keys(PHOTO_CREDITS);
+    const credits = coverCredits([
+      { featured_image_url: a, featured_image_credit: null },
+      { featured_image_url: b, featured_image_credit: null },
+      { featured_image_url: a, featured_image_credit: null },
+      { featured_image_url: "https://cdn.samecdigital.com/nic.jpg", featured_image_credit: null },
+      null,
+    ]);
+    expect(credits.map((c) => c.author)).toEqual([
+      PHOTO_CREDITS[a!]!.author,
+      PHOTO_CREDITS[b!]!.author,
+    ]);
+  });
+
+  it("každý kredit ve výpisu nese jméno, licenci i odkaz na její znění", () => {
+    const credits = coverCredits(
+      Object.keys(PHOTO_CREDITS).map((u) => ({ featured_image_url: u, featured_image_credit: null })),
+    );
+    expect(credits.length).toBeGreaterThan(0);
+    for (const c of credits) {
+      expect(isRealAuthorName(c.author)).toBe(true);
+      expect(c.licenseUrl).toMatch(/^https:\/\//);
+    }
+  });
+});
+
+/**
+ * Pojistka na vstupu nesmí zůstat rozkopírovaná „skoro všude".
+ *
+ * Šablona detailu fotku bez doloženého autora nepustí, ale karty ji braly
+ * z `featured_image_url` napřímo — dokud data filtroval jen `src/lib/supabase.ts`,
+ * stačil jeden nový zdroj dat a fotka bez práv byla na webu.
+ */
+describe("kdo sahá na úvodní fotku", () => {
+  const KOREN = join(import.meta.dirname, "..");
+
+  function soubory(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) return soubory(p);
+      return /\.(astro|ts)$/.test(e.name) && !e.name.endsWith(".test.ts") ? [p] : [];
+    });
+  }
+
+  it("žádná šablona nepošle `featured_image_url` rovnou do <img>", () => {
+    const hrichy: string[] = [];
+    for (const p of soubory(KOREN)) {
+      const rel = p.slice(KOREN.length + 1);
+      const src = readFileSync(p, "utf8");
+      // Značkovací část .astro souboru — nad `---` je jen TypeScript.
+      const sablona = rel.endsWith(".astro") ? src.split(/^---$/m).slice(2).join("---") : "";
+      if (!sablona) continue;
+      for (const m of sablona.matchAll(/^.*src=\{[^}]*featured_image_url[^}]*\}.*$/gm)) {
+        hrichy.push(`${rel}: ${m[0].trim()}`);
+      }
+    }
+    expect(hrichy).toEqual([]);
+  });
+
+  it("každá stránka s kartami vykresluje blok Fotografie", () => {
+    const KARTY = /\b(ArticleCard|CategoryBlock|RailStory|FloatingCard|HeroCarousel|RecentCarousel)\b/;
+    const hrichy: string[] = [];
+    for (const p of [...soubory(join(KOREN, "pages")), ...soubory(join(KOREN, "layouts"))]) {
+      const src = readFileSync(p, "utf8");
+      if (!KARTY.test(src)) continue;
+      if (!src.includes("PhotoCredits")) hrichy.push(p.slice(KOREN.length + 1));
+    }
+    expect(hrichy).toEqual([]);
   });
 });

@@ -6,7 +6,7 @@ import Newsletter from "../components/Newsletter.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
 import PhotoCredits from "../components/PhotoCredits.astro";
-import { creditFor, creditFromDb, stripUncreditedImages } from "../lib/photo-credits";
+import { coverCredit, showableImage, stripUncreditedImages } from "../lib/photo-credits";
 import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 import { getImage } from "astro:assets";
 import { siteConfig } from "../../site.config";
@@ -65,14 +65,16 @@ const altText = article.featured_image_alt || article.title;
 // Dřív tu svítilo „Foto: archiv" u 131 ze 142 článků — čtenáři to neřeklo nic
 // a autorovi to atribuci nesplnilo. Když kredit chybí, nepíše se nic; fotka
 // bez doloženého původu na článku nemá být vůbec (viz kontrola-fotek.mjs).
-const heroCredit =
-  creditFromDb(article.featured_image_credit) ?? creditFor(article.featured_image_url) ?? null;
+// Poslední brána před <img>: bez doloženého autora se úvodní fotka nevykreslí
+// (stejný pomocník používají karty ve výpisech).
+const cover = showableImage(article);
+const heroCredit = coverCredit(article);
 // LCP preload featured obrázku – optimalizovaná webp varianta matchující <img> níž.
-let preloadHref = article.featured_image_url || undefined;
+let preloadHref = cover || undefined;
 let preloadSrcset: string | undefined;
-if (article.featured_image_url) {
+if (cover) {
   try {
-    const opt = await getImage({ src: article.featured_image_url, inferSize: true, widths: IMG_WIDTHS.featured, format: "webp" });
+    const opt = await getImage({ src: cover, inferSize: true, widths: IMG_WIDTHS.featured, format: "webp" });
     preloadHref = opt.src;
     preloadSrcset = opt.srcSet.attribute;
   } catch {
@@ -104,10 +106,10 @@ const idx = allInCat.findIndex((a) => a.id === article.id);
 const newer = idx > 0 ? allInCat[idx - 1] : null;
 const older = idx < allInCat.length - 1 ? allInCat[idx + 1] : null;
 
-const featuredImageObject = article.featured_image_url
+const featuredImageObject = cover
   ? {
       "@type": "ImageObject",
-      "url": article.featured_image_url,
+      "url": cover,
       "width": 1200,
       "height": 675,
     }
@@ -197,7 +199,7 @@ const breadcrumbsLd = {
 <Base
   title={article.seo_title || article.title}
   description={article.seo_description || article.perex}
-  image={article.featured_image_url || undefined}
+  image={cover || undefined}
   type="article"
   slug={article.slug}
   canonical={url}
@@ -228,10 +230,10 @@ const breadcrumbsLd = {
       )}
     </header>
 
-    {article.featured_image_url && (
+    {cover && (
       <figure class="mb-8 -mx-4 sm:-mx-6 md:mx-0">
         <ResponsiveImage
-          src={article.featured_image_url}
+          src={cover}
           alt={altText}
           widths={IMG_WIDTHS.featured}
           sizes={IMG_SIZES.featured}
@@ -304,7 +306,7 @@ const breadcrumbsLd = {
       </section>
     )}
 
-    <PhotoCredits article={article} />
+    <PhotoCredits article={article} articles={relatedArticles} />
 
     <AdSlot slot="article-end" variant="display" ratio="4 / 1" />
 

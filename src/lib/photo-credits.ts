@@ -74,6 +74,15 @@ const NEJMENA = new Set([
 /** Poskytovatelé, u kterých licence jméno autora nevyžaduje. */
 const BEZ_POVINNE_ATRIBUCE = new Set(["pexels", "unsplash", "pixabay", "ai"]);
 
+/**
+ * Jméno fotobanky není jméno fotografa. „Pexels" atribuci u téhle licence
+ * sice splní, ale když máme dohledané jméno člověka, patří na web ono.
+ */
+export function jeJenPoskytovatel(name: unknown): boolean {
+  const v = String(name ?? "").trim().toLowerCase();
+  return BEZ_POVINNE_ATRIBUCE.has(v) || NEJMENA.has(v);
+}
+
 /** Je tenhle text jménem, nebo jen výmluvou? */
 export function isRealAuthorName(name: unknown): boolean {
   const v = String(name ?? "").trim();
@@ -175,6 +184,78 @@ export function mayShowImage(
   return Boolean(creditFromDb(dbCredit) ?? creditFor(url));
 }
 
+/** Minimum, které o článku potřebuje karta ve výpisu. */
+export interface CoverSource {
+  featured_image_url?: string | null;
+  featured_image_credit?: DbCredit | null;
+}
+
+/**
+ * Adresa úvodní fotky, kterou smíme vykreslit — jinak null.
+ *
+ * Karty ve výpisech (homepage, rubriky, „mohlo by vás zajímat") sahaly na
+ * `featured_image_url` přímo, takže pojistka držela jen na jednom místě
+ * (`src/lib/supabase.ts`). Kdo přidá další zdroj dat, obejde ji. Tenhle
+ * pomocník je poslední brána před `<img>`: bez doloženého kreditu vrátí null
+ * a karta vykreslí prázdné místo místo obrázku.
+ */
+export function showableImage(a: CoverSource | null | undefined): string | null {
+  const url = a?.featured_image_url ?? null;
+  if (!url) return null;
+  return mayShowImage(url, a?.featured_image_credit) ? url : null;
+}
+
+/**
+ * Kredit k úvodní fotce — z CMS, jinak z tabulky dohledaných kreditů.
+ *
+ * ‼️ Vyhrává ten, kdo skutečně pojmenuje autora. CMS u fotek z fotobank často
+ * drží jen `provider` bez jména fotografa, takže by z něj vypadlo „Pexels" —
+ * a jméno „Gustavo Fring", které máme dohledané v `PHOTO_CREDITS`, by se na
+ * web nikdy nedostalo. Pexels atribuci sice nevyžaduje, ale uvést fotobanku
+ * místo člověka je přesně ta vada, za kterou přišla výzva PhotoClaim.
+ */
+export function coverCredit(a: CoverSource | null | undefined): PhotoCredit | null {
+  if (!showableImage(a)) return null;
+  const zDb = creditFromDb(a!.featured_image_credit);
+  const zRegistru = creditFor(a!.featured_image_url) ?? null;
+  if (zDb && jeJenPoskytovatel(zDb.author) && zRegistru && !jeJenPoskytovatel(zRegistru.author)) {
+    return zRegistru;
+  }
+  return zDb ?? zRegistru;
+}
+
+/** Sběrač kreditů bez duplicit — tentýž autor + licence + zdroj se vypíše jednou. */
+function sberacKreditu() {
+  const out: PhotoCredit[] = [];
+  const videno = new Set<string>();
+  return {
+    pridej(c: PhotoCredit | null | undefined) {
+      if (!c) return;
+      const klic = `${c.author}|${c.license}|${c.sourceUrl}`;
+      if (videno.has(klic)) return;
+      videno.add(klic);
+      out.push(c);
+    },
+    hotovo: () => out,
+  };
+}
+
+/**
+ * Kredity k úvodním fotkám celého výpisu — homepage, rubrika, „mohlo by vás
+ * zajímat" — bez duplicit.
+ *
+ * Fotka na kartě je stejné užití díla jako fotka v článku. 11. 9. 2026 bylo
+ * na homepage 18 fotek a nula kreditů, protože kredit uměla jen šablona
+ * detailu.
+ */
+export function coverCredits(
+  articles: (CoverSource | null | undefined)[] | null | undefined,
+): PhotoCredit[] {
+  const s = sberacKreditu();
+  for (const a of articles ?? []) s.pridej(coverCredit(a));
+  return s.hotovo();
+}
+
 /**
  * Vyhodí z těla článku každý `<img>`, u kterého neumíme doložit původ,
  * i s obalem (`<figure>`, odkaz na plnou velikost, prázdný odstavec).
@@ -265,18 +346,8 @@ export function articleCredits(article: {
   // Obsah se sem dává syrový: obrázek bez kreditu do seznamu stejně nepřibude
   // a zároveň se ze stránky vyhazuje týmž pravidlem (stripUncreditedImages),
   // takže seznam sedí s tím, co je vidět.
-  const out: PhotoCredit[] = [];
-  const videno = new Set<string>();
-  const pridej = (c: PhotoCredit | null | undefined) => {
-    if (!c) return;
-    const klic = `${c.author}|${c.license}|${c.sourceUrl}`;
-    if (videno.has(klic)) return;
-    videno.add(klic);
-    out.push(c);
-  };
-  if (article.featured_image_url) {
-    pridej(creditFromDb(article.featured_image_credit) ?? creditFor(article.featured_image_url));
-  }
-  for (const u of inlineImageUrls(article.content)) pridej(creditFor(u));
-  return out;
+  const s = sberacKreditu();
+  s.pridej(coverCredit(article));
+  for (const u of inlineImageUrls(article.content)) s.pridej(creditFor(u));
+  return s.hotovo();
 }

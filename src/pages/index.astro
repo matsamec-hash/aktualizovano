@@ -4,7 +4,7 @@ import HeroCarousel from "../components/HeroCarousel.astro";
 import FloatingCard from "../components/FloatingCard.astro";
 import CategoryBlock from "../components/CategoryBlock.astro";
 import RecentCarousel from "../components/RecentCarousel.astro";
-import PhotoCreditsList from "../components/PhotoCreditsList.astro";
+import PhotoCredits from "../components/PhotoCredits.astro";
 import { getPublishedArticles } from "../lib/supabase";
 import { getImage } from "astro:assets";
 import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
@@ -83,6 +83,6 @@ if (heroLcpImage) {
       </div>
     )}
 
-    <PhotoCreditsList articles={zobrazene} />
+    <PhotoCredits articles={zobrazene} />
   </div>
 </Base>

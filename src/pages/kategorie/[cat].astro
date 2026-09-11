@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
-import PhotoCreditsList from "../../components/PhotoCreditsList.astro";
+import PhotoCredits from "../../components/PhotoCredits.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getArticlesByCategory } from "../../lib/supabase";
 import { siteConfig } from "../../../site.config";
@@ -56,6 +56,6 @@ const breadcrumbsLd = {
       </div>
     )}
 
-    <PhotoCreditsList articles={articles} />
+    <PhotoCredits articles={articles} />
   </div>
 </Base>

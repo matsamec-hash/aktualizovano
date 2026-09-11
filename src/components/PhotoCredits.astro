@@ -1,29 +1,53 @@
 ---
-// Blok „Fotografie" na konci článku — jméno autora, název licence a odkaz na
-// její plné znění ke každé použité fotce.
+// Blok „Fotografie" — jméno autora, název licence a odkaz na její plné znění
+// ke každé fotce, kterou stránka ukazuje.
+//
+// Umí dva vstupy a klidně oba najednou:
+//   `article`  — jeden článek: úvodní fotka + obrázky v textu (detail článku),
+//   `articles` — pole článků: jen úvodní fotky (homepage, rubrika, „mohlo by
+//                vás zajímat", což jsou karty na konci detailu).
 //
 // Proč souhrnný blok: obrázky uvnitř článků přišly z WordPressu jako holé
-// `<img>` v HTML, kredit k nim nemá kam patřit. Popisek u každé fotky by
-// znamenal přepisovat těla 67 článků; souhrnný blok splní atribuci na jednom
+// `<img>` v HTML, kredit k nim nemá kam patřit, a u mřížky karet by popisek
+// pod každou miniaturou rozbil layout. Souhrnný blok splní atribuci na jednom
 // místě. Úvodní fotka má svůj popisek nahoře a objeví se i tady.
+//
+// ‼️ Fotka na kartě ve výpisu je stejné užití díla jako fotka v článku.
+// 11. 9. 2026 měla homepage 18 cover fotek a nula jmen autorů, protože kredit
+// uměla jen šablona detailu.
 //
 // ‼️ Licence se vypisuje jako ODKAZ. CC BY / CC BY-SA vyžadují jméno autora,
 // název licence i odkaz na její text — samotný název licence nestačí.
-import { articleCredits } from "../lib/photo-credits";
+import { articleCredits, coverCredits, type CoverSource, type PhotoCredit } from "../lib/photo-credits";
 import type { Article } from "../lib/types";
 
 interface Props {
-  article: Article;
+  /** Detail článku — úvodní fotka i obrázky v textu. */
+  article?: Article;
+  /** Výpis karet — úvodní fotky článků, které jsou na stránce vidět. */
+  articles?: (CoverSource | null | undefined)[];
+  /** Kotva sekce, když jsou na stránce dva bloky (nemá být). */
+  id?: string;
 }
 
-const { article } = Astro.props;
-const credits = articleCredits(article);
+const { article, articles, id = "fotografie-heading" } = Astro.props;
+
+// Sloučení bez duplicit: tentýž autor + licence + zdroj se vypíše jednou,
+// i když je stejná fotka na stránce jako úvodní i jako karta níž.
+const credits: PhotoCredit[] = [];
+const videno = new Set<string>();
+for (const c of [...(article ? articleCredits(article) : []), ...coverCredits(articles)]) {
+  const klic = `${c.author}|${c.license}|${c.sourceUrl}`;
+  if (videno.has(klic)) continue;
+  videno.add(klic);
+  credits.push(c);
+}
 ---
 
 {credits.length > 0 && (
-  <section class="mt-12 pt-6 border-t border-[var(--color-border)]" aria-labelledby="fotografie-heading">
+  <section class="mt-12 pt-6 border-t border-[var(--color-border)]" aria-labelledby={id}>
     <h2
-      id="fotografie-heading"
+      id={id}
       class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3"
     >
       Fotografie
