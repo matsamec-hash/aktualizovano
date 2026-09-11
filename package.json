@@ -12,7 +12,9 @@
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run",
+    "kontrola-fotek": "node scripts/kontrola-fotek.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
@@ -30,6 +32,7 @@
     "@tailwindcss/vite": "4.2.2",
     "@types/sanitize-html": "^2.16.1",
     "tailwindcss": "4.2.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
   }
 }

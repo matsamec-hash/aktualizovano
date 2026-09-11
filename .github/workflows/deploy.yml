@@ -28,6 +28,19 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Rohatka na práva k fotkám: kredit musí mít jméno autora, název licence
+      # i odkaz na její znění a počet nedoložených fotek smí jen klesat.
+      # Běží PŘED buildem, aby se regrese nedostala na web.
+      - name: Test
+        run: npm test
+
+      # Ohlásí, když v CMS přibyla fotka bez doloženého původu. Deploy to
+      # neshazuje — nedoložená fotka se stejně nevykreslí — ale chceme o ní
+      # vědět dřív, než si jí všimne advokát protistrany.
+      - name: Kontrola práv k fotkám (informativní)
+        continue-on-error: true
+        run: node scripts/kontrola-fotek.mjs --jen-vypis
+
       - name: Build
         run: npm run build
 

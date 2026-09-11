@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { siteConfig } from "../../site.config";
 import type { Article } from "./types";
+import { mayShowImage } from "./photo-credits";
 
 // Články se čtou ze self-hostované instance — tam píše admin.samecdigital.com.
 // Dřív tu byla natvrdo cloudová instance, takže se web renderoval z databáze,
@@ -12,6 +13,20 @@ const SUPABASE_ANON_KEY = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBh
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+/**
+ * Úvodní fotka bez doloženého autora a licence se z článku odstřihne hned
+ * u zdroje dat, ne až v šabloně.
+ *
+ * Proč tady: `featured_image_url` čte osm různých míst (karty, karusel,
+ * rubriky, og:image, schema). Kdyby se hlídalo v šabloně, stačilo by jedno
+ * zapomenuté a fotka bez práv by na webu zůstala. 10. 9. 2026 přišla za
+ * takovou fotku advokátní výzva na jiný web v portfoliu.
+ */
+function bezNedolozenychFotek<T extends Article>(a: T): T {
+  if (mayShowImage(a.featured_image_url, a.featured_image_credit)) return a;
+  return { ...a, featured_image_url: null, featured_image_credit: null };
+}
+
 export async function getPublishedArticles(): Promise<Article[]> {
   const { data } = await supabase
     .from("articles")
@@ -19,7 +34,7 @@ export async function getPublishedArticles(): Promise<Article[]> {
     .eq("site_id", siteConfig.siteId)
     .eq("status", "published")
     .order("published_at", { ascending: false });
-  return (data as Article[]) || [];
+  return ((data as Article[]) || []).map(bezNedolozenychFotek);
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
@@ -30,7 +45,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     .eq("slug", slug)
     .eq("status", "published")
     .single();
-  return data as Article | null;
+  return data ? bezNedolozenychFotek(data as Article) : null;
 }
 
 export async function getArticlesByCategory(category: string): Promise<Article[]> {
@@ -41,7 +56,7 @@ export async function getArticlesByCategory(category: string): Promise<Article[]
     .eq("status", "published")
     .eq("category", category)
     .order("published_at", { ascending: false });
-  return (data as Article[]) || [];
+  return ((data as Article[]) || []).map(bezNedolozenychFotek);
 }
 
 export async function getRelatedArticles(
@@ -57,7 +72,7 @@ export async function getRelatedArticles(
     .neq("id", currentId)
     .order("published_at", { ascending: false })
     .limit(60);
-  const candidates = (data as Article[]) ?? [];
+  const candidates = ((data as Article[]) ?? []).map(bezNedolozenychFotek);
   const currentTags = new Set((tags ?? []).map((t) => t.trim().toLowerCase()).filter(Boolean));
   const scored = candidates.map((art) => {
     const artTags = new Set(((art.tags ?? []) as string[]).map((t) => t.trim().toLowerCase()).filter(Boolean));

@@ -1,0 +1,65 @@
+---
+// Blok „Fotografie" na konci článku — jméno autora, název licence a odkaz na
+// její plné znění ke každé použité fotce.
+//
+// Proč souhrnný blok: obrázky uvnitř článků přišly z WordPressu jako holé
+// `<img>` v HTML, kredit k nim nemá kam patřit. Popisek u každé fotky by
+// znamenal přepisovat těla 67 článků; souhrnný blok splní atribuci na jednom
+// místě. Úvodní fotka má svůj popisek nahoře a objeví se i tady.
+//
+// ‼️ Licence se vypisuje jako ODKAZ. CC BY / CC BY-SA vyžadují jméno autora,
+// název licence i odkaz na její text — samotný název licence nestačí.
+import { articleCredits } from "../lib/photo-credits";
+import type { Article } from "../lib/types";
+
+interface Props {
+  article: Article;
+}
+
+const { article } = Astro.props;
+const credits = articleCredits(article);
+---
+
+{credits.length > 0 && (
+  <section class="mt-12 pt-6 border-t border-[var(--color-border)]" aria-labelledby="fotografie-heading">
+    <h2
+      id="fotografie-heading"
+      class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3"
+    >
+      Fotografie
+    </h2>
+    <ul class="text-xs text-[var(--color-text-muted)] leading-relaxed space-y-1">
+      {credits.map((c) => (
+        <li>
+          {c.authorUrl ? (
+            <a href={c.authorUrl} rel="nofollow noopener" target="_blank" class="underline">
+              {c.author}
+            </a>
+          ) : (
+            c.author
+          )}
+          {c.license && (
+            <>
+              {" · "}
+              {c.licenseUrl ? (
+                <a href={c.licenseUrl} rel="license nofollow noopener" target="_blank" class="underline">
+                  {c.license}
+                </a>
+              ) : (
+                c.license
+              )}
+            </>
+          )}
+          {c.sourceUrl && (
+            <>
+              {" · "}
+              <a href={c.sourceUrl} rel="nofollow noopener" target="_blank" class="underline">
+                originál
+              </a>
+            </>
+          )}
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

@@ -1,0 +1,956 @@
+# Fotky bez doložených práv — k odstranění z CMS a z CDN
+# Pořízeno 2026-09-11. Na webu se už nevykreslují; tenhle seznam je podklad
+# pro vyprázdnění řádků v CMS a smazání souborů z cdn.samecdigital.com.
+
+https://cdn.samecdigital.com/aktualizovano/2020/11/ilustr.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: mezinarodni-nekuracky-den-letos-pripada-na-19-listopad-na-skoncovani-s-cigaretami-nikdy-nebyla-lepsi-doba-shoduji-se-uprostred-pandemie-odbornici
+
+https://cdn.samecdigital.com/aktualizovano/2020/12/image1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: na-mladoboleslavsku-se-slozili-na-nove-koncertni-kridlo-ve-ctvrtek-na-nej-zahraje-mistni-virtuos-miroslav-sekera
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/1b-EDL_Graphic_Horizontal-Metric-01-1024x604.png
+    důvod: původ se nepodařilo doložit
+    v textu: ingenuity
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/DSC_3415-681x1024.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: raper-erick-mati-predstavuje-svuj-prvni-videoklip-nazvany-23-cre
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/DSC_3762-681x1024.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: raper-erick-mati-predstavuje-svuj-prvni-videoklip-nazvany-23-cre
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/DSC_3784-681x1024.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: raper-erick-mati-predstavuje-svuj-prvni-videoklip-nazvany-23-cre
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/DSC_3817-scaled-e1611153293212-1024x744.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: raper-erick-mati-predstavuje-svuj-prvni-videoklip-nazvany-23-cre
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/DSC_3817-scaled-e1611153293212.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: raper-erick-mati-predstavuje-svuj-prvni-videoklip-nazvany-23-cre
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Lavoreit-v-Itálii-scaled-e1610622514441.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: ceska-firma-hydropol-postavila-a-zprovoznila-hydroelektrarnu-lavoreit-v-severni-italii
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-18.59.51-1024x686.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.00.04-1024x717.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.00.18.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.00.34-1024x718.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.00.49-1024x716.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.08.44-1024x403.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/Snimek-obrazovky-2021-01-22-v-19.17.42-968x1024.png
+    důvod: snímek obrazovky cizího webu/aplikace bez doloženého svolení
+    v textu: airalo-esim-skvely-partak-na-cesty
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/pexels-innermost-limits-3689634.jpg
+    důvod: Pexels: fotka 3689634 už na Pexels není (HTTP 404) → licenci nelze doložit
+    úvodní fotka: jak-vypadalo-mlade-tyranosaura-bylo-velke-asi-jako-border-kolie
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/screencapture-trends-google-cz-trends-yis-2019-CZ-2021-01-20-20_29_38-1.png
+    důvod: původ se nepodařilo doložit
+    v textu: ceske-google-trendy-2020
+
+https://cdn.samecdigital.com/aktualizovano/2021/01/screencapture-trends-google-trends-yis-2020-CZ-2021-01-20-20_35_09.png
+    důvod: původ se nepodařilo doložit
+    v textu: ceske-google-trendy-2020
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/1970_Subaru_360-1-1024x730.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: top-5-ikonickych-modelu-subaru
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/1A_Top_Management.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: jako-prvni-cesky-projekt-vubec-se-firma-artinii-ucastni-ve-sve-kategorii-sedmeho-rocniku-berlinale-european-film-market-efm
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/ACP.png
+    důvod: původ se nepodařilo doložit
+    v textu: jako-prvni-cesky-projekt-vubec-se-firma-artinii-ucastni-ve-sve-kategorii-sedmeho-rocniku-berlinale-european-film-market-efm
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/AFFP.png
+    důvod: původ se nepodařilo doložit
+    v textu: jako-prvni-cesky-projekt-vubec-se-firma-artinii-ucastni-ve-sve-kategorii-sedmeho-rocniku-berlinale-european-film-market-efm
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Mapa-nabijecich-stanic-ABB-v-CR.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: abb-oznamila-vyrazny-narust-v-poctu-nabijecich-stanic-v-cesku
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Nabíjecí-stanice-ABB-v-OC-Královo-Pole-upr.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: abb-oznamila-vyrazny-narust-v-poctu-nabijecich-stanic-v-cesku
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/První-ultrarychlá-dobíječka-v-ČR_E.ON_Vystrkov_01-upr.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: abb-oznamila-vyrazny-narust-v-poctu-nabijecich-stanic-v-cesku
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Rozvadov-upr-1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: abb-oznamila-vyrazny-narust-v-poctu-nabijecich-stanic-v-cesku
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Subaru_Brat_-_17016044839.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: top-5-ikonickych-modelu-subaru
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Tomanek_Mokry_GEEN2.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: honza-tomanek-ma-noveho-generalniho-partnera-geen
+    v textu: honza-tomanek-ma-noveho-generalniho-partnera-geen
+
+https://cdn.samecdigital.com/aktualizovano/2021/02/Tomanek_mokry_GEEN1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: honza-tomanek-ma-noveho-generalniho-partnera-geen
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/2021-23-02-08-03-26-680-680-12-1613989498-granito-pure-125g.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/424415460-1024x1024.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/424415461_72dpi.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/750033143_72dpi.jpg
+    důvod: cizí autor v metadatech (rights: ZWILLING J.A Henckels AG Gruenewalder Strasse 14-22 42657 Solingen; CopyrightNotice: ZWILLING J.A Henckels AG   ), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/AMM4494-1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: kampan-better-tomorrow-prinesla-spolecnosti-bat-prestizni-oceneni
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/BAT-Globe-House-I.-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: kampan-better-tomorrow-prinesla-spolecnosti-bat-prestizni-oceneni
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/BAT-Globe-House-II.-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: kampan-better-tomorrow-prinesla-spolecnosti-bat-prestizni-oceneni
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/BAT-Globe-House-III.-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: kampan-better-tomorrow-prinesla-spolecnosti-bat-prestizni-oceneni
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/EH_8764_Amb_CoupeConservation_StorageBowl_71_V.jpg
+    důvod: cizí autor v metadatech (rights: Bernard Radvaner; CopyrightNotice: Bernard Radvaner; Copyright: Bernard Radvaner), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/EH_8764_Life_CoupeConservation_StorageBowl_71_V.jpg
+    důvod: cizí autor v metadatech (rights: Bernard Radvaner; CopyrightNotice: Bernard Radvaner; Copyright: Bernard Radvaner), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/EH_8764_Life_CoupeConservation_StorageBowl_Filling_A-1024x1024.jpg
+    důvod: cizí autor v metadatech (rights: Bernard Radvaner; CopyrightNotice: Bernard Radvaner; Copyright: Bernard Radvaner), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/GP-PRIER-ESH-3PLY-Ind-Bl-9011Bl_INFP-fry-pan.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: tajemstvi-zdrave-kuchyne
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/GP-Premiere-MSS-Ind-with-Evershine-Black-Infinity-PRO-Open-Frying-Pan-26cm-x-45mm.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/GP_BAR_MSS_BD_Frypan_30cm.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/GP_BAR_MSS_BD_MetalUtensilSafe.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/Granito-pure-Lipstick-Granito-to-go-321g.png
+    důvod: cizí autor v metadatech (creator: unknown), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/Granito_family_pure.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/GreenPan-Premiere-SS-Black-fry-pan-24-cm-top.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/LW_210214_GLO_HYPER_VALENTYN_PRAGUE_CZ_LQ_0016.jpg
+    důvod: Lukas Wagneter — „All Rights Reserved“ přímo v metadatech
+    v textu: dj-roxtar-pandemii-zvlada-vdeci-za-to-nove-lasce-i-pracovne-vytizenemu-delfinovi
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/LW_210214_GLO_HYPER_VALENTYN_PRAGUE_CZ_LQ_0040-1.jpg
+    důvod: Lukas Wagneter — „All Rights Reserved“ přímo v metadatech
+    v textu: dj-roxtar-pandemii-zvlada-vdeci-za-to-nove-lasce-i-pracovne-vytizenemu-delfinovi
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/LW_210214_GLO_HYPER_VALENTYN_PRAGUE_CZ_LQ_0041.jpg
+    důvod: Lukas Wagneter — „All Rights Reserved“ přímo v metadatech
+    úvodní fotka: dj-roxtar-pandemii-zvlada-vdeci-za-to-nove-lasce-i-pracovne-vytizenemu-delfinovi
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/Snímek-obrazovky-2021-03-04-v-13.00.38.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: dogecoin-se-na-twitteru-stava-oblibenejsim-nez-bitcoin
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/Tyčový-mixér-Bamix-Potten-Pannen-Staněk.jpg
+    důvod: cizí autor v metadatech (creator: UG1; By-line: UG1; Artist: UG1), licence nedoložená
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/VERITABLE-CONNECT-IG-kitchenVéritable.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/VERITABLE-Potager-CLASSICVéritable.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/03/VERITABLE-SMART-AW-kitchenVéritable.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tajemstvi-zdrave-kuchyne
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/36848_006.jpg
+    důvod: Discovery Communications — užití omezené na propagaci pořadu
+    v textu: dokumentarni-serie-na-discovery-predstavi-nejvetsi-egyptsky-vykop-v-tajemnem-udoli-kralu-za-poslednich-sto-let
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/36848_053.jpg
+    důvod: Discovery Communications — užití omezené na propagaci pořadu
+    v textu: dokumentarni-serie-na-discovery-predstavi-nejvetsi-egyptsky-vykop-v-tajemnem-udoli-kralu-za-poslednich-sto-let
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/36848_064.jpg
+    důvod: Discovery Communications — užití omezené na propagaci pořadu
+    v textu: dokumentarni-serie-na-discovery-predstavi-nejvetsi-egyptsky-vykop-v-tajemnem-udoli-kralu-za-poslednich-sto-let
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/36848_099.jpg
+    důvod: Discovery Communications — užití omezené na propagaci pořadu
+    úvodní fotka: dokumentarni-serie-na-discovery-predstavi-nejvetsi-egyptsky-vykop-v-tajemnem-udoli-kralu-za-poslednich-sto-let
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Den-Země-v-New-Yorku.jpg
+    důvod: Shutterstock — „No use without permission“ přímo v metadatech
+    v textu: oslavy-dne-zeme-maji-ve-svete-mnoho-podob
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Den-dívek-obr.-2-zdroj-Unsplash.com_.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: zeny-v-odvetvi-technologii-vzdelani-pomaha-nastartovat-uz-i-osn
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Instalace-u-Somerset-House-.jpg
+    důvod: Shutterstock — „No use without permission“ přímo v metadatech
+    v textu: oslavy-dne-zeme-maji-ve-svete-mnoho-podob
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/OG100-Awareness_sub_cz.mp4
+    důvod: původ se nepodařilo doložit
+    v textu: discovery-a-eurosport-predstavuji-nove-porady-a-novou-hymnu-pro-tokio-2020
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Snímek-obrazovky-2021-04-18-v-9.53.29.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: youtuber-jake-paul-ponizil-profesionalniho-bojovnika-ufc-bena-askrena-za-2-minuty
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Tokio.jpg
+    důvod: Shutterstock — „No use without permission“ přímo v metadatech
+    v textu: oslavy-dne-zeme-maji-ve-svete-mnoho-podob
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Union-Square-New-York.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: oslavy-dne-zeme-maji-ve-svete-mnoho-podob
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Velo-Mini-CZ-WHT-Front-Berry-Frost-6mg-preview-1024x731.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: novy-velo-mini-prirustek-do-rodiny-nikotinovych-alternativ
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Velo-Mini-CZ-WHT-Front-Polar-Mint-6mg-preview-1024x731.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: novy-velo-mini-prirustek-do-rodiny-nikotinovych-alternativ
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Velo-Mini-CZ-WHT-Front-Tropic-Breeze-6mg-preview-1024x731.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: novy-velo-mini-prirustek-do-rodiny-nikotinovych-alternativ
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/Velo-Mini-CZ-WHT-Open-Polar-Mint-6mg-preview-1024x939.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: novy-velo-mini-prirustek-do-rodiny-nikotinovych-alternativ
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/mini-Tropic-Breeze_fin.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: novy-velo-mini-prirustek-do-rodiny-nikotinovych-alternativ
+
+https://cdn.samecdigital.com/aktualizovano/2021/04/ryunosuke-kikuno-PUldfCtEoCk-unsplash.jpg
+    důvod: Unsplash: fotka PUldfCtEoCk už na Unsplash není (HTTP 404) → původ nelze doložit
+    úvodní fotka: discovery-a-eurosport-predstavuji-nove-porady-a-novou-hymnu-pro-tokio-2020
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/19189-ABB-Graf-Co-je-pro-vás-na-designu-dàleoité-1024x333.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tretina-domacnosti-se-pousti-do-rekonstrukce-domova-i-kvuli-covidu
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/19189-ABB-Graf-Vyuoil-jste-designové-prvky-2-1024x319.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tretina-domacnosti-se-pousti-do-rekonstrukce-domova-i-kvuli-covidu
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/19189-ABB-Graf-Vyuoil-jste-prvky-chytré-domácnosti-1024x464.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: tretina-domacnosti-se-pousti-do-rekonstrukce-domova-i-kvuli-covidu
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/20210419_122931-scaled.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: sky-gallery-prinasi-netradicni-spojeni-obchodniho-centra-a-soucasneho-umeni
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/20210426_143537-1-scaled.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: sky-gallery-prinasi-netradicni-spojeni-obchodniho-centra-a-soucasneho-umeni
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/20210426_143609-scaled.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: sky-gallery-prinasi-netradicni-spojeni-obchodniho-centra-a-soucasneho-umeni
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/20210426_143816-scaled.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: sky-gallery-prinasi-netradicni-spojeni-obchodniho-centra-a-soucasneho-umeni
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/KJ43525_KSJ421120_ePen3_Upgrade_Device_Black_VUSE_CGI_Light_On_v2-1024x805.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: rebranding-popularni-e-cigarety-vype-se-meni-na-vuse
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/KJ47282_KSJ458323_ePod_Device_Gold-1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: rebranding-popularni-e-cigarety-vype-se-meni-na-vuse
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/KJ47282_KSJ458323_ePod_Device_Gold-1024x805.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: rebranding-popularni-e-cigarety-vype-se-meni-na-vuse
+
+https://cdn.samecdigital.com/aktualizovano/2021/05/r-architecture-2gDwlIim3Uw-unsplash.jpg
+    důvod: Unsplash: fotka 2gDwlIim3Uw už na Unsplash není (HTTP 404) → původ nelze doložit
+    úvodní fotka: tretina-domacnosti-se-pousti-do-rekonstrukce-domova-i-kvuli-covidu
+
+https://cdn.samecdigital.com/aktualizovano/2021/07/Jakub_Stupka2-scaled.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: e-mailingova-platforma-ecomail-narostla-o-64-jeji-obrat-letos-presahne-55-milionu
+
+https://cdn.samecdigital.com/aktualizovano/2021/08/Snímek-obrazovky-2021-08-19-v-16.28.32.png
+    důvod: původ se nepodařilo doložit
+    v textu: marcus-obey-yourcuzmarcus-co-poslouchat-1
+
+https://cdn.samecdigital.com/aktualizovano/2021/08/Snímek-obrazovky-2021-08-23-v-17.43.00.png
+    důvod: původ se nepodařilo doložit
+    v textu: marcus-obey-yourcuzmarcus-co-poslouchat-1
+
+https://cdn.samecdigital.com/aktualizovano/2021/08/Snímek-obrazovky-2021-08-23-v-17.44.03.png
+    důvod: původ se nepodařilo doložit
+    v textu: marcus-obey-yourcuzmarcus-co-poslouchat-1
+
+https://cdn.samecdigital.com/aktualizovano/2021/08/iStock-918694548_eng.png
+    důvod: Getty/iStock — placená licence, kterou nemáme doloženou
+    úvodní fotka: ochrana-dusevni-vlastnictvi-pomoci-blockchain-casoveho-razitka-mytitle
+
+https://cdn.samecdigital.com/aktualizovano/2021/08/marcus-.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: marcus-obey-yourcuzmarcus-co-poslouchat-1
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/1-2.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: antonin-paral-propojeni-grafiky-a-kryptomen
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/1200_ledovec.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: 5-mrazivych-mist-pro-milovniky-zimnich-aktivit
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/2.png
+    důvod: původ se nepodařilo doložit
+    v textu: antonin-paral-propojeni-grafiky-a-kryptomen
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/BBQ-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: vykouzlete-si-doma-hamburger-jako-v-prave-americke-restauraci
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/Darky-13.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: olivovy-olej-z-istrie-zavoni-nejen-na-svatecnim-stole
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/Darky-14-1024x768.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: olivovy-olej-z-istrie-zavoni-nejen-na-svatecnim-stole
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/Darky-15-1024x768.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: olivovy-olej-z-istrie-zavoni-nejen-na-svatecnim-stole
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/Plotr-9-2.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: moderni-cnc-stroje-pomahaji-automatizovat-vyrobu
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/Vyroba-stroju-a-zarizeni-1024x148.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: moderni-cnc-stroje-pomahaji-automatizovat-vyrobu
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/aktualizovano.cz_adicare_cz_uvodni.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    úvodní fotka: neprehanite-to-s-alkoholem-bezpecna-denni-davka-je-pouze-3-dcl-vina
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/aktualizovano.cz_auto-poly_cz_01.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    v textu: ze-skody-enyaq-je-muzejni-exponat-do-propadliste-dejin-vsak-rozhodne-nepatri
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/aktualizovano.cz_auto-poly_cz_uvodni.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    úvodní fotka: ze-skody-enyaq-je-muzejni-exponat-do-propadliste-dejin-vsak-rozhodne-nepatri
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/aktualizovano.cz_byty_u_parku_01.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    v textu: na-zizkovskem-vackove-se-nabizeji-posledni-volne-byty-k-prodeji
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/aktualizovano.cz_byty_u_parku_uvodni.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    úvodní fotka: na-zizkovskem-vackove-se-nabizeji-posledni-volne-byty-k-prodeji
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/baikal-2631899_1280.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: 5-mrazivych-mist-pro-milovniky-zimnich-aktivit
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/bill-oxford-aIlAhLdwk2g-unsplash-1-scaled.jpg
+    důvod: Unsplash: fotka aIlAhLdwk2g už na Unsplash není (HTTP 404) → původ nelze doložit
+    úvodní fotka: vse-co-musite-vedet-o-ketodiete
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/christmas-tree-3784021_640.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: vybirame-napadite-darky-pro-sve-blizke
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/damska-podzimni-bunda.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: damska-podzimni-bunda-jako-skvely-doplnek-zenskeho-satniku
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/drink-1870140_1280-1024x529.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: 5-mrazivych-mist-pro-milovniky-zimnich-aktivit
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/image.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: neprehanite-to-s-alkoholem-bezpecna-denni-davka-je-pouze-3-dcl-vina
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/janik-rohland-Ni4cMceBcds-unsplash.jpg
+    důvod: Unsplash: fotka Ni4cMceBcds už na Unsplash není (HTTP 404) → původ nelze doložit
+    v textu: 5-mrazivych-mist-pro-milovniky-zimnich-aktivit
+
+https://cdn.samecdigital.com/aktualizovano/2021/09/snowhotel-2068899_1280-1024x637.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: 5-mrazivych-mist-pro-milovniky-zimnich-aktivit
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/Stehovaci-sluzby-Praha.jpeg
+    důvod: cizí autor v metadatech (rights: Copyright (C) Andrey Popov; CopyrightNotice: Copyright (C) Andrey Popov; Copyright: Copyright (C) Andrey Popov), licence nedoložená
+    úvodní fotka: co-by-mela-mit-dobra-stehovaci-sluzba-ridte-se-pri-vyberu-temito-kriterii
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/aktualizovano.cz_ergo_cz_01.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    v textu: pojisteni-odpovednosti-ma-smysl-v-praci-i-v-beznem-zivote
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/aktualizovano.cz_ergo_cz_02.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    v textu: pojisteni-odpovednosti-ma-smysl-v-praci-i-v-beznem-zivote
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/aktualizovano.cz_ergo_cz_uvodni.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    úvodní fotka: pojisteni-odpovednosti-ma-smysl-v-praci-i-v-beznem-zivote
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/beautiful-young-woman-with-shopping-bags-using-her-smart-phone-yellow-background.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: slevove-kupony-a-kody
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/fotka-liceni-nevesty-v-odrazu.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: 7-tipu-jak-najit-idealniho-svatebniho-fotografa
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/img-1-1024x735.png
+    důvod: původ se nepodařilo doložit
+    v textu: jak-usetrit-pri-nakupovani-na-internetu
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/knizkove.png
+    důvod: cizí autor v metadatech (creator: Romana Mazalová), licence nedoložená
+    v textu: pouzdro-na-mobil-hodili-jsme-mobil-z-vysky-na-zem-jak-si-vedly-ochranne-kryty-na-mobil
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/odolne-1.png
+    důvod: cizí autor v metadatech (creator: Romana Mazalová), licence nedoložená
+    úvodní fotka: pouzdro-na-mobil-hodili-jsme-mobil-z-vysky-na-zem-jak-si-vedly-ochranne-kryty-na-mobil
+    v textu: pouzdro-na-mobil-hodili-jsme-mobil-z-vysky-na-zem-jak-si-vedly-ochranne-kryty-na-mobil
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/pamir_highway-1.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: 3-road-tripy-ktere-musite-zazit
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/silikon.png
+    důvod: cizí autor v metadatech (creator: Romana Mazalová), licence nedoložená
+    v textu: pouzdro-na-mobil-hodili-jsme-mobil-z-vysky-na-zem-jak-si-vedly-ochranne-kryty-na-mobil
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/svatba-325-1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: 7-tipu-jak-najit-idealniho-svatebniho-fotografa
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/svatba-395-1.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: 7-tipu-jak-najit-idealniho-svatebniho-fotografa
+
+https://cdn.samecdigital.com/aktualizovano/2021/10/svatba-jakub-a-terka-v-penzionu-malovanem-333.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: 7-tipu-jak-najit-idealniho-svatebniho-fotografa
+
+https://cdn.samecdigital.com/aktualizovano/2021/12/ARGO_VERTIGO.png
+    důvod: původ se nepodařilo doložit
+    v textu: nejlepsi-topidla-pro-rok-2022
+
+https://cdn.samecdigital.com/aktualizovano/2021/12/Dyson_pure_hot_cool.jpg
+    důvod: tisková fotka firmy bez doloženého svolení
+    úvodní fotka: nejlepsi-topidla-pro-rok-2022
+    v textu: nejlepsi-topidla-pro-rok-2022
+
+https://cdn.samecdigital.com/aktualizovano/2021/12/argo-fusion.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: nejlepsi-topidla-pro-rok-2022
+
+https://cdn.samecdigital.com/aktualizovano/2021/12/infra-topidlo_2.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: nejlepsi-topidla-pro-rok-2022
+
+https://cdn.samecdigital.com/aktualizovano/2021/12/veito.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: nejlepsi-topidla-pro-rok-2022
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/DSC03091.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: nomadic-cz-netradicni-cestovatelsky-blog
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/Nomadic.cz_.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: nomadic-cz-netradicni-cestovatelsky-blog
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/analysts-working-2021-09-24-03-55-55-utc-1.jpeg
+    důvod: Envato Elements — placená licence, kterou nemáme doloženou
+    úvodní fotka: koucovani-je-dnes-hitem-ovladnete-ho
+    v textu: koucovani-je-dnes-hitem-ovladnete-ho
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/foto_1.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: investujte-chytre-a-bezpecne-na-webu-invest-cz
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/gorakhpur-1024x580.jpeg
+    důvod: cizí autor v metadatech (creator: Jan Machač; Artist: Jan Machač), licence nedoložená
+    v textu: nomadic-cz-netradicni-cestovatelsky-blog
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/obr_6-1024x542.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: investujte-chytre-a-bezpecne-na-webu-invest-cz
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/obr_7-1024x542.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: investujte-chytre-a-bezpecne-na-webu-invest-cz
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/obr_8-1024x542.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: investujte-chytre-a-bezpecne-na-webu-invest-cz
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/obr_9-1024x374.png
+    důvod: původ se nepodařilo doložit
+    v textu: investujte-chytre-a-bezpecne-na-webu-invest-cz
+
+https://cdn.samecdigital.com/aktualizovano/2022/01/silk-road-1024x745.jpeg
+    důvod: cizí autor v metadatech (creator: Jan Machač; Artist: Jan Machač), licence nedoložená
+    v textu: nomadic-cz-netradicni-cestovatelsky-blog
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/Crypto-furure-2.jpeg
+    důvod: Shutterstock — „No use without permission“ přímo v metadatech
+    úvodní fotka: jak-zacit-s-tezbou-kryptomen-zkuste-crypto-future
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/Crypto-future.jpeg
+    důvod: Shutterstock — „No use without permission“ přímo v metadatech
+    v textu: jak-zacit-s-tezbou-kryptomen-zkuste-crypto-future
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/Madrid.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: spanelsko-a-jeho-historicke-skvosty-to-proste-musite-videt
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/Segovia-Pixaby-876322_1920-1024x625.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: spanelsko-a-jeho-historicke-skvosty-to-proste-musite-videt
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/aktualizovano.cz_istyle_cz_01.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    v textu: airpods-2-vs-3-generace-vyplati-se-poridit-nejnovejsi-apple-sluchatka
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/aktualizovano.cz_istyle_cz_uvodni.jpg
+    důvod: PR/klientská fotka bez doloženého svolení
+    úvodní fotka: airpods-2-vs-3-generace-vyplati-se-poridit-nejnovejsi-apple-sluchatka
+
+https://cdn.samecdigital.com/aktualizovano/2022/02/head-foto.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: modra-stuzka-vam-se-svatbou-pomuze
+
+https://cdn.samecdigital.com/aktualizovano/2022/04/BUDVAR_01_04_2022_019_adj.jpg
+    důvod: tisková fotka firmy bez doloženého svolení
+    úvodní fotka: mattoni-spolu-s-budvarem-predstavuji-unikatni-ochucene-nealko-pivo-birgo
+
+https://cdn.samecdigital.com/aktualizovano/2022/04/BUDVAR_01_04_2022_024.jpg
+    důvod: tisková fotka firmy bez doloženého svolení
+    v textu: mattoni-spolu-s-budvarem-predstavuji-unikatni-ochucene-nealko-pivo-birgo
+
+https://cdn.samecdigital.com/aktualizovano/2022/06/AdobeStock_205899062.jpg
+    důvod: Adobe Stock — placená licence, kterou nemáme doloženou
+    v textu: lipofilling-obliceje
+
+https://cdn.samecdigital.com/aktualizovano/2022/06/AdobeStock_280574367.jpg
+    důvod: Adobe Stock — placená licence, kterou nemáme doloženou
+    úvodní fotka: lipofilling-obliceje
+
+https://cdn.samecdigital.com/aktualizovano/2022/06/co-je-to-testosteron-1024x683.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: co-je-to-testosteron
+
+https://cdn.samecdigital.com/aktualizovano/2022/06/nedostatek-testosteronu-1024x682.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: co-je-to-testosteron
+
+https://cdn.samecdigital.com/aktualizovano/2022/06/nizka-hladina-testosteronu-v-tele.jpeg
+    důvod: cizí autor v metadatech (rights: @drazen_zigic; CopyrightNotice: @drazen_zigic; Copyright: @drazen_zigic), licence nedoložená
+    úvodní fotka: co-je-to-testosteron
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Nevera_SP-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: prvni-seriove-vyrabeny-rimac-nevera-vjizdi-do-ulic
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Nevera_SP-2-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: prvni-seriove-vyrabeny-rimac-nevera-vjizdi-do-ulic
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Nevera_SP-2.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: prvni-seriove-vyrabeny-rimac-nevera-vjizdi-do-ulic
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Nevera_series_-preseries_prototypes_mules.png
+    důvod: tisková fotka firmy bez doloženého svolení
+    úvodní fotka: prvni-seriove-vyrabeny-rimac-nevera-vjizdi-do-ulic
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470653-lowRes-768x1024.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    v textu: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470655-lowRes-1024x768.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    v textu: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470656-highRes.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    úvodní fotka: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470657-lowRes-1024x768.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    v textu: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470658-lowRes-1024x682.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    v textu: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/P90470659-lowRes-1024x682.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    v textu: policie-ziskala-20-modernich-motocyklu-bmw-motorrad
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Perlomanie_OFF_Prazdniny-a-dusevni-rovnovaha-kameny.png
+    důvod: původ se nepodařilo doložit
+    v textu: jak-mit-dostatek-energie-abychom-o-prazdninach-zvladli-vse-potrebne
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Perlomanie_OFF_Prazdniny-a-dusevni-rovnovaha-perlove-sperky-1024x614.png
+    důvod: původ se nepodařilo doložit
+    v textu: jak-mit-dostatek-energie-abychom-o-prazdninach-zvladli-vse-potrebne
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/Perlomanie_OFF_Prazdniny-a-dusevni-rovnovaha-uvod-1.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: jak-mit-dostatek-energie-abychom-o-prazdninach-zvladli-vse-potrebne
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/biometrický-zámek.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: biometricky-zamek-je-v-dnesni-dobe-urcen-nejen-cyklistum
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/kurz-NLP.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: coaching-universita-buduje-kouce-kteri-umi
+
+https://cdn.samecdigital.com/aktualizovano/2022/07/pexels-alexander-mils-2068975.jpg
+    důvod: Pexels: fotka 2068975 už na Pexels není (HTTP 404) → licenci nelze doložit
+    úvodní fotka: pujcka-bez-ruceni-pomuze-v-mnoha-ruznych-zivotnich-situacich
+
+https://cdn.samecdigital.com/aktualizovano/2022/08/Certoo_2.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: ochrana-autorskeho-dila-online-za-par-minut
+
+https://cdn.samecdigital.com/aktualizovano/2022/08/Certoo_dasboard_certifikát-1024x683.png
+    důvod: původ se nepodařilo doložit
+    v textu: ochrana-autorskeho-dila-online-za-par-minut
+
+https://cdn.samecdigital.com/aktualizovano/2022/09/Obrázek1.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: top-3-kurzy-online-ktere-se-vyplati-studovat
+
+https://cdn.samecdigital.com/aktualizovano/2022/11/nejlepsi-svatebni-fotograf-praha-2.jpg
+    důvod: cizí autor v metadatech (rights: Yeko Photo Studio; CopyrightNotice: Yeko Photo Studio; Copyright: Yeko Photo Studio), licence nedoložená
+    v textu: nejlepsi-svatebni-fotograf-pochazi-z-prahy
+
+https://cdn.samecdigital.com/aktualizovano/2022/11/nejlepsi-svatebni-fotograf-praha-3.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: nejlepsi-svatebni-fotograf-pochazi-z-prahy
+
+https://cdn.samecdigital.com/aktualizovano/2022/11/nejlepsi-svatebni-fotograf-praha.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: nejlepsi-svatebni-fotograf-pochazi-z-prahy
+
+https://cdn.samecdigital.com/aktualizovano/2022/11/new-code-nlp-spolecna-v2.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: nlp-koucink-je-vysoce-efektivni
+
+https://cdn.samecdigital.com/aktualizovano/2022/11/roman-synkevych-WoX2yEt9WCA-unsplash.jpg
+    důvod: Unsplash: fotka WoX2yEt9WCA už na Unsplash není (HTTP 404) → původ nelze doložit
+    úvodní fotka: jak-vybrat-maturitni-serpy
+
+https://cdn.samecdigital.com/aktualizovano/2022/12/Snímek-obrazovky-2022-12-03-v-10.10.39.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: b-21-raider-nejpokrocilejsi-neviditelny-bombarder-seste-generace-a-budoucnost-u-s-air-force-byl-predstaven-verejnosti
+
+https://cdn.samecdigital.com/aktualizovano/2022/12/children-play-with-toy-designer-floor-children-s-room-two-kids-playing-with-colorful-blocks-kindergarten-educational-games.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: drevene-nebo-plastove-hracky-ktere-jsou-lepsi
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/20221012_01_01.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: svetova-premiera-noveho-plne-elektrickeho-modelu-lexus-ux-300e
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/20221012_01_05.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: svetova-premiera-noveho-plne-elektrickeho-modelu-lexus-ux-300e
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/20221012_01_07.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: svetova-premiera-noveho-plne-elektrickeho-modelu-lexus-ux-300e
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/Snímek-obrazovky-2023-01-11-v-16.34.54.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: australsky-par-popsal-otresny-zazitek-z-potapejici-se-lodi-rekl-jsem-ji-aby-rychle-plavala
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/erbsat1041.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: nasa-ocekava-o-vikendu-pad-jednoho-ze-starych-satelitu
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/keboiwa2.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: lod-plna-turistu-se-potopila-na-bali-turiste-museli-zachranit-skokem-do-rozboureneho-more
+
+https://cdn.samecdigital.com/aktualizovano/2023/01/keboiwa3.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: lod-plna-turistu-se-potopila-na-bali-turiste-museli-zachranit-skokem-do-rozboureneho-more
+
+https://cdn.samecdigital.com/aktualizovano/2023/02/Snímek-obrazovky-2023-02-03-v-13.22.12-1024x838.png
+    důvod: původ se nepodařilo doložit
+    v textu: neomezena-letenka-na-leto-za-399-usd-frontier-spousti-all-you-can-fly-jaky-to-ma-hacek
+
+https://cdn.samecdigital.com/aktualizovano/2023/07/LSS_Front_2-1024x463.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: lean6sigma-cz-vase-cesta-k-efektivnimu-podnikani-a-inovacim
+
+https://cdn.samecdigital.com/aktualizovano/2023/07/Logo_Mockup.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: lean6sigma-cz-vase-cesta-k-efektivnimu-podnikani-a-inovacim
+
+https://cdn.samecdigital.com/aktualizovano/2023/07/Snímek-obrazovky-2023-07-07-v-15.30.48.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: twitter-hrozi-zalobou-proti-spolecnosti-meta-kvuli-aplikaci-threads
+
+https://cdn.samecdigital.com/aktualizovano/2023/08/Snímek-obrazovky-2023-08-02-v-9.01.53.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: zapomenute-svedectvi-romsky-holokaust-odhalen-ve-vyjimecne-online-databazi
+
+https://cdn.samecdigital.com/aktualizovano/2023/08/Snímek-obrazovky-2023-08-02-v-9.02.15-1024x818.png
+    důvod: původ se nepodařilo doložit
+    v textu: zapomenute-svedectvi-romsky-holokaust-odhalen-ve-vyjimecne-online-databazi
+
+https://cdn.samecdigital.com/aktualizovano/2024/01/P90520131_highRes_mini-cooper-se-08-20-scaled.jpg
+    důvod: BMW PressClub — tisková fotka bez doloženého svolení
+    úvodní fotka: mini-v-roce-2023-dosahla-uspechu-diky-rustu-prodeje-a-zrychlene-adopci-elektrickych-vozidel
+
+https://cdn.samecdigital.com/aktualizovano/2024/02/clanek.jpeg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: uloz-to-se-prizpusobilo-nove-evropske-legislative
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429091567.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429091677.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429091850.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429092377.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429092466.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429093044.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/1429093197.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/03/730bd48b-2c67-4546-996b-8aeaa19b93a6.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: reklamni-predmety-a-jak-na-ne
+
+https://cdn.samecdigital.com/aktualizovano/2024/04/Scooter-1024x1024.png
+    důvod: původ se nepodařilo doložit
+    v textu: jarni-probuzeni-vaseho-skutru-jak-na-to
+
+https://cdn.samecdigital.com/aktualizovano/2024/04/Skútr.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: jarni-probuzeni-vaseho-skutru-jak-na-to
+
+https://cdn.samecdigital.com/aktualizovano/2024/05/Bunda-moto-1024x1024.png
+    důvod: původ se nepodařilo doložit
+    v textu: jezdite-na-motorce-tyhle-kousky-obleceni-musite-mit
+
+https://cdn.samecdigital.com/aktualizovano/2024/05/Kalhoty-moto-.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: jezdite-na-motorce-tyhle-kousky-obleceni-musite-mit
+
+https://cdn.samecdigital.com/aktualizovano/2024/06/Cover-obrázek.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: od-konce-cervna-a-lze-opet-zadat-o-dotaci-na-solarni-ohrev-vody-z-programu-nzu-light-je-treba-ale-pocitat-nizsi-castkou
+
+https://cdn.samecdigital.com/aktualizovano/2024/12/CBD-olejicek-1024x768.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: cbd-jako-cesta-k-lepsimu-spanku
+
+https://cdn.samecdigital.com/aktualizovano/2024/12/Zdravy-spanek.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: cbd-jako-cesta-k-lepsimu-spanku
+
+https://cdn.samecdigital.com/aktualizovano/2025/03/aktualizovano-scaled.jpg
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: jak-vybrat-nejlepsi-monitor-klicove-parametry-na-ktere-si-dat-pozor
+
+https://cdn.samecdigital.com/aktualizovano/2025/06/obrazek.png
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: jak-spravne-nastavit-ucetnictvi-pri-expanzi-firmy-do-zahranici
+
+https://cdn.samecdigital.com/aktualizovano/2025/07/3086_bb4.jpg.webp
+    důvod: původ se nepodařilo doložit
+    v textu: fenomen-labubu-jak-roztomila-priserka-ovlada-svet-sberatelu-influenceru-a-mody
+
+https://cdn.samecdigital.com/aktualizovano/2025/07/7421_pop-mart-labubu-the-monsters-have-a-seat-vinyl-plush-blind-box-333.jpg.webp
+    důvod: původ se nepodařilo doložit
+    v textu: fenomen-labubu-jak-roztomila-priserka-ovlada-svet-sberatelu-influenceru-a-mody
+
+https://cdn.samecdigital.com/aktualizovano/2025/07/detail_labubu-the-monsters-big-into-e_3.png
+    důvod: původ se nepodařilo doložit
+    v textu: fenomen-labubu-jak-roztomila-priserka-ovlada-svet-sberatelu-influenceru-a-mody
+
+https://cdn.samecdigital.com/aktualizovano/2025/07/labubu-the-monsters.jpg.webp
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: fenomen-labubu-jak-roztomila-priserka-ovlada-svet-sberatelu-influenceru-a-mody
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/16861174-ccbed3.webp
+    důvod: původ se nepodařilo doložit
+    úvodní fotka: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/1c9d3839a8d0542aaf963cae46f19559-1024x683.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/2025-prague-pride-parade-photo-daria-ostapenko-hfbgl.webp
+    důvod: Daria Ostapenko — licence nedohledatelná (na Commons není), navíc rozpoznatelné osoby
+    v textu: kdyz-je-pride-vic-nez-pruvod-o-cem-skutecne-mluvi-prague-pride-2025
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/2025-prague-pride-parade-photo-daria-ostapenko-mfwvp-1024x520.webp
+    důvod: Daria Ostapenko — licence nedohledatelná (na Commons není), navíc rozpoznatelné osoby
+    v textu: kdyz-je-pride-vic-nez-pruvod-o-cem-skutecne-mluvi-prague-pride-2025
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/2025-prague-pride-parade-photo-daria-ostapenko-mfwvp.webp
+    důvod: Daria Ostapenko — licence nedohledatelná (na Commons není), navíc rozpoznatelné osoby
+    úvodní fotka: kdyz-je-pride-vic-nez-pruvod-o-cem-skutecne-mluvi-prague-pride-2025
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/2025-prague-pride-parade-photo-daria-ostapenko-xrqol.webp
+    důvod: Daria Ostapenko — licence nedohledatelná (na Commons není), navíc rozpoznatelné osoby
+    v textu: kdyz-je-pride-vic-nez-pruvod-o-cem-skutecne-mluvi-prague-pride-2025
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/Black-Sabbath-BTTB-SQ-1024x1024-1.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/Ozzy-Osbourne-final-Black-Sabbath-gig-Villa-Park-070625-05-adef22ee0ab649b4a58a33dc9e3c0626-1024x683.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/Ozzy-Osbourne.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/Ozzy-and-Sharon-1024x576.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/RH-2025-07-05-1363.jpg-1024x683.avif
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/bilkova-vila-scaled-1-1024x683.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/dox-copyright-36-1024x683.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/etihad-a380-residence-1.jpg.webp
+    důvod: tisková fotka firmy bez doloženého svolení
+    úvodní fotka: top-5-nejluxusnejsich-aerolinek-sveta-kolik-stoji-let-na-ktery-nikdy-nezapomenes
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/hp_img_sudek.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/machalka-2-1024x510.jpg
+    důvod: původ se nepodařilo doložit
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/ozzy-osbourne-1024x576.jpeg
+    důvod: původ se nepodařilo doložit
+    v textu: rocknroll-drogy-a-sharon-pribeh-ozzyho-osbourna-od-zacatku-do-konce
+
+https://cdn.samecdigital.com/aktualizovano/2025/08/vojanovy-sady-1-1024x683.jpg
+    důvod: cizí autor v metadatech (rights: (c) EveNue Photography www.evenue.cz; CopyrightNotice: (c) EveNue Photography www.evenue.cz; Copyright: (c) EveN), licence nedoložená
+    v textu: turista-ve-vlastnim-meste-skryte-perly-prahy-ktere-mozna-neznate
+
+https://lh6.googleusercontent.com/96dqmCRm-_R-M8uNdILnWnW2rzQr-RslPJgdaHhyqgDzkdjT-1tk1ilBqnjpFumaWDwv58m7to8b8hsfgLr-zpgklxoKH6ZU1Na15HVnA0FCDaO0NIcMg1eEA7lZDvNVMg1aVEUBVfAA_apJFA
+    důvod: původ se nepodařilo doložit
+    v textu: na-mladoboleslavsku-se-slozili-na-nove-koncertni-kridlo-ve-ctvrtek-na-nej-zahraje-mistni-virtuos-miroslav-sekera
+
+https://lh6.googleusercontent.com/sFjHlX5op_-mot_IJ_aCGyVqnzlJGgl3Bzk3Mixxe9t2WWKb2XFUU9P0ElIH4_09NquHcNPhb9u5YVz9zV1vQyFjGHZ0jNPDsyJOQlzP436UPdwWjzOYocIQ3T0EyalukfE_6Nk
+    důvod: původ se nepodařilo doložit
+    v textu: abb-oznamila-vyrazny-narust-v-poctu-nabijecich-stanic-v-cesku

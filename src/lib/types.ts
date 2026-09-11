@@ -9,11 +9,16 @@ export interface Article {
   seo_description: string;
   featured_image_url: string | null;
   featured_image_alt: string | null;
+  // jsonb z CMS. `license` / `license_url` doplněny při úklidu práv k fotkám
+  // (10. 9. 2026) — u CC licencí je odkaz na plné znění povinný, takže
+  // samotné jméno autora a zdroj nestačí. Starší řádky je nemají.
   featured_image_credit: {
-    provider: 'upload' | 'pexels' | 'unsplash' | 'pixabay' | 'ai';
+    provider: 'upload' | 'pexels' | 'unsplash' | 'pixabay' | 'ai' | 'commons' | 'nasa';
     photographer_name: string;
     photographer_url: string;
     source_url: string;
+    license?: string;
+    license_url?: string;
   } | null;
   focal_point: { x: number; y: number } | null;
   category: string | null;

@@ -3,6 +3,7 @@ import type { APIContext } from 'astro';
 import sanitizeHtml from 'sanitize-html';
 import { siteConfig } from '../../site.config';
 import { getPublishedArticles } from '../lib/supabase';
+import { stripUncreditedImages } from '../lib/photo-credits';
 
 export async function GET(context: APIContext) {
   const articles = await getPublishedArticles();
@@ -23,7 +24,11 @@ export async function GET(context: APIContext) {
         description: a.perex,
         link: `${siteUrl.replace(/\/$/, '')}/${a.slug}/`,
         categories: [categoryLabel(a.category), ...(a.tags ?? [])].filter(Boolean),
-        content: sanitizeHtml(a.content, {
+        // Feed veze celé tělo článku včetně obrázků, takže se z něj musí
+        // vyhodit fotky bez doložených práv stejně jako ze stránky. Strojové
+        // výstupy se na takovou kontrolu snadno zapomenou — a čtečky obsah
+        // rozšíří dál, kam už nedosáhneme.
+        content: sanitizeHtml(stripUncreditedImages(a.content).html, {
           allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h2', 'figure', 'figcaption']),
           allowedAttributes: { a: ['href'], img: ['src', 'alt'] },
           allowedSchemes: ['http', 'https', 'mailto'],

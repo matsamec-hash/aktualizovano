@@ -5,6 +5,8 @@ import ArticleCard from "../components/ArticleCard.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ResponsiveImage from "../components/ResponsiveImage.astro";
+import PhotoCredits from "../components/PhotoCredits.astro";
+import { creditFor, creditFromDb, stripUncreditedImages } from "../lib/photo-credits";
 import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
 import { getImage } from "astro:assets";
 import { siteConfig } from "../../site.config";
@@ -22,7 +24,13 @@ interface Props {
 const { article, relatedArticles, others = [] } = Astro.props;
 const readTime = Math.max(1, Math.ceil((article.content?.length || 0) / 1500));
 
-const linkedRaw = autoLinkContent(article.content || "", article, others);
+// Obrázky bez doloženého autora a licence se z těla článku vyhazují ještě
+// před vykreslením. Většina obrázků v tělech přišla z WordPressu bez
+// jakéhokoli záznamu o původu — a u části z nich stojí v metadatech
+// „No use without permission". Kolik jich je, hlídá `npm test`;
+// soupis a důvody jsou v `docs/prava-k-fotkam.md`.
+const { html: contentWithCreditedImages } = stripUncreditedImages(article.content || "");
+const linkedRaw = autoLinkContent(contentWithCreditedImages, article, others);
 const preprocessed = preprocessContent(linkedRaw)
   // WP obsah občas nese vlastní <h1> (mezititulky) → na stránce by byly 2+ H1.
   // H1 je titulek článku v šabloně, obsahové nadpisy patří o úroveň níž.
@@ -53,6 +61,12 @@ const modifiedIso = article.last_updated_at
   : publishedIso;
 
 const altText = article.featured_image_alt || article.title;
+// Kredit u úvodní fotky se vypisuje jen tehdy, když někoho skutečně pojmenuje.
+// Dřív tu svítilo „Foto: archiv" u 131 ze 142 článků — čtenáři to neřeklo nic
+// a autorovi to atribuci nesplnilo. Když kredit chybí, nepíše se nic; fotka
+// bez doloženého původu na článku nemá být vůbec (viz kontrola-fotek.mjs).
+const heroCredit =
+  creditFromDb(article.featured_image_credit) ?? creditFor(article.featured_image_url) ?? null;
 // LCP preload featured obrázku – optimalizovaná webp varianta matchující <img> níž.
 let preloadHref = article.featured_image_url || undefined;
 let preloadSrcset: string | undefined;
@@ -227,21 +241,33 @@ const breadcrumbsLd = {
           fetchpriority="high"
           class="w-full md:rounded-xl"
         />
-        {article.featured_image_credit?.photographer_name && (
+        {heroCredit && (
           <figcaption class="text-xs text-[var(--color-text-muted)] mt-2 px-4 sm:px-6 md:px-0">
             Foto:{' '}
-            {article.featured_image_credit.photographer_url ? (
-              <a href={article.featured_image_credit.photographer_url} rel="nofollow noopener" target="_blank" class="underline">
-                {article.featured_image_credit.photographer_name}
+            {heroCredit.authorUrl ? (
+              <a href={heroCredit.authorUrl} rel="nofollow noopener" target="_blank" class="underline">
+                {heroCredit.author}
               </a>
             ) : (
-              <span>{article.featured_image_credit.photographer_name}</span>
+              <span>{heroCredit.author}</span>
             )}
-            {article.featured_image_credit.source_url && (
+            {heroCredit.license && (
               <>
-                {' / '}
-                <a href={article.featured_image_credit.source_url} rel="nofollow noopener" target="_blank" class="underline">
-                  {article.featured_image_credit.provider}
+                {' · '}
+                {heroCredit.licenseUrl ? (
+                  <a href={heroCredit.licenseUrl} rel="license nofollow noopener" target="_blank" class="underline">
+                    {heroCredit.license}
+                  </a>
+                ) : (
+                  heroCredit.license
+                )}
+              </>
+            )}
+            {heroCredit.sourceUrl && (
+              <>
+                {' · '}
+                <a href={heroCredit.sourceUrl} rel="nofollow noopener" target="_blank" class="underline">
+                  originál
                 </a>
               </>
             )}
@@ -277,6 +303,8 @@ const breadcrumbsLd = {
         </div>
       </section>
     )}
+
+    <PhotoCredits article={article} />
 
     <AdSlot slot="article-end" variant="display" ratio="4 / 1" />
 
