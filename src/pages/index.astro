@@ -4,6 +4,7 @@ import HeroCarousel from "../components/HeroCarousel.astro";
 import FloatingCard from "../components/FloatingCard.astro";
 import CategoryBlock from "../components/CategoryBlock.astro";
 import RecentCarousel from "../components/RecentCarousel.astro";
+import PhotoCreditsList from "../components/PhotoCreditsList.astro";
 import { getPublishedArticles } from "../lib/supabase";
 import { getImage } from "astro:assets";
 import { IMG_WIDTHS, IMG_SIZES } from "../lib/imageSizes";
@@ -20,6 +21,16 @@ const articlesByCategory = siteConfig.categories
     articles: articles.filter((a) => a.category === cat.slug).slice(0, 3),
   }))
   .filter((c) => c.articles.length > 0);
+
+// Kredity patří k fotkám, které homepage opravdu ukazuje — ne ke všem
+// publikovaným článkům. Jinak by seznam autorů vypisoval i fotky, které na
+// stránce nikde nejsou.
+const zobrazene = [
+  ...heroSlides,
+  ...floating,
+  ...recent,
+  ...articlesByCategory.flatMap((c) => c.articles),
+];
 
 // LCP = první slide hero carouselu → preload optimalizované webp varianty (musí
 // matchovat <img> v HeroCarouselu, jinak se stáhne originál i webp).
@@ -71,5 +82,7 @@ if (heroLcpImage) {
         <p class="text-sm">Brzy zde najdete články ze všech rubrik.</p>
       </div>
     )}
+
+    <PhotoCreditsList articles={zobrazene} />
   </div>
 </Base>
