@@ -44,6 +44,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Blokující: hlídá vyrenderované HTML, ne data. Kredity byly v registru
+      # kompletní a testy zelené, a přesto na homepage nesvítilo ani jedno
+      # jméno autora — kredit uměla jen šablona detailu. Čerstvý článek z CMS
+      # neshodí: skript si jména dotáhne i z databáze.
+      - name: Kontrola atribuce ve vyrenderovaném HTML
+        run: npm run kontrola-atribuce
+
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 

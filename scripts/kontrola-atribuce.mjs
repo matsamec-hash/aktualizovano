@@ -50,6 +50,46 @@ const basenameKey = (nazevSouboru) =>
     .replace(/_[A-Za-z0-9]{4,10}$/, "")
     .replace(/__v-w\d+$/i, "");
 
+/**
+ * Kredity nežijí jen v registru — nový článek z CMS má autora v databázi
+ * (`articles.featured_image_credit`) a do `photo-credits.json` se dostane až
+ * ručně. Bez tohohle kroku by hlídka hlásila čerstvý článek jako „bez kreditu
+ * v registru" a shodila by noční nasazení, ačkoli autor na stránce je.
+ *
+ * Čte se stejná instance a stejným anon klíčem jako při buildu
+ * (`src/lib/supabase.ts`), takže to nepotřebuje žádný secret navíc.
+ * Když CMS nedojede, registr sám o sobě stačí — hlídka se kvůli výpadku
+ * databáze nesmí stát falešně přísnou.
+ */
+async function kredityZCms() {
+  const lib = readFileSync(join(ROOT, "src/lib/supabase.ts"), "utf8");
+  const url = /const SUPABASE_URL = "([^"]+)"/.exec(lib)?.[1];
+  const key = /const SUPABASE_ANON_KEY = "([^"]+)"/.exec(lib)?.[1];
+  const siteId = /siteId:\s*"([^"]+)"/.exec(
+    readFileSync(join(ROOT, "site.config.ts"), "utf8"),
+  )?.[1];
+  if (!url || !key || !siteId) return {};
+  const dotaz =
+    `${url}/rest/v1/articles` +
+    `?select=featured_image_url,featured_image_credit` +
+    `&site_id=eq.${siteId}&status=eq.published&featured_image_url=not.is.null`;
+  try {
+    const res = await fetch(dotaz, { headers: { apikey: key, Authorization: `Bearer ${key}` } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const out = {};
+    for (const r of await res.json()) {
+      const c = r.featured_image_credit;
+      const jmeno = String(c?.photographer_name ?? "").trim();
+      if (!jmeno) continue;
+      out[r.featured_image_url] = { author: jmeno, license: c?.license ?? "" };
+    }
+    return out;
+  } catch (e) {
+    console.warn(`⚠️  kredity z CMS se nenačetly (${e.message}) — kontroluje se jen registr.`);
+    return {};
+  }
+}
+
 const podleUrl = new Map();
 const podleJmena = new Map();
 const kolizeJmen = new Set();
@@ -64,6 +104,17 @@ for (const [url, credit] of Object.entries(CREDITS)) {
   podleJmena.set(jmeno, credit);
 }
 for (const j of kolizeJmen) podleJmena.delete(j);
+
+// Kredity z CMS se přidávají až teď a jen tam, kde registr mlčí. Nesmí
+// přebít dohledané jméno fotografa (CMS u fotobank drží často jen provider)
+// ani rozhodit kontrolu kolizí jmen — mají jen zabránit tomu, aby čerstvý
+// článek propadl jako „bez kreditu".
+for (const [url, credit] of Object.entries(await kredityZCms())) {
+  const klic = normalizeImageKey(url);
+  if (!podleUrl.has(klic)) podleUrl.set(klic, credit);
+  const jmeno = basenameKey(klic.split("/").pop() ?? "");
+  if (!podleJmena.has(jmeno) && !kolizeJmen.has(jmeno)) podleJmena.set(jmeno, credit);
+}
 
 /** Jména jdou do HTML s entitami („Giovanni Dall&#39;Orto“) — porovnáváme dekódovaně. */
 const decode = (s) =>
