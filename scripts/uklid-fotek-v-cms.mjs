@@ -100,7 +100,9 @@ for (const a of data) {
     // aby po ní nezůstal popisek k obrázku, který tam není.
     zmena.featured_image_url = null;
     zmena.featured_image_credit = null;
-    zmena.featured_image_alt = null;
+    // ‼️ `featured_image_alt` je v schématu NOT NULL — na NULL ho nastavit nelze.
+    // Prázdný řetězec je správný výsledek: obrázek zmizel, tak nemá co popisovat.
+    zmena.featured_image_alt = "";
     heroPryc++;
   } else if (c) {
     const novy = {
@@ -111,7 +113,15 @@ for (const a of data) {
       license: c.license,
       license_url: c.licenseUrl,
     };
-    if (JSON.stringify(a.featured_image_credit ?? {}) !== JSON.stringify(novy)) {
+    // ‼️ Porovnávat se musí nezávisle na pořadí klíčů — Postgres vrací jsonb
+    // s vlastním pořadím, takže prosté JSON.stringify hlásí rozdíl navěky
+    // a skript pak tvrdí, že má 59 kreditů co doplnit, i když už jsou uložené.
+    const shodne = (x, y) => {
+      const a = Object.fromEntries(Object.entries(x ?? {}).sort());
+      const b = Object.fromEntries(Object.entries(y ?? {}).sort());
+      return JSON.stringify(a) === JSON.stringify(b);
+    };
+    if (!shodne(a.featured_image_credit, novy)) {
       zmena.featured_image_credit = novy;
       heroKredit++;
     }
