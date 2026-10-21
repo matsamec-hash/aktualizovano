@@ -35,7 +35,7 @@ import {
  * měří úklid v CMS a klesne na nulu, až se ty řádky vyprázdní
  * (podklad: `docs/prava-k-fotkam.md`).
  */
-const LIMIT_NEDOLOZENYCH_V_CMS = 237;
+const LIMIT_NEDOLOZENYCH_V_CMS = 0;
 
 describe("tabulka kreditů", () => {
   it("každý kredit pojmenuje autora, licenci i odkaz na její znění", () => {
