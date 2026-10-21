@@ -9,8 +9,8 @@
  * bez kreditu a `stripUncreditedImages` vyhodí z těla článku obrázky bez
  * kreditu. Že počet nedoložených fotek neroste, hlídá `npm test`.
  *
- * Stav k 2026-09-11: 78 obrázků s doloženým kreditem,
- * 237 obrázků bez doloženého původu (ty se nevykreslují).
+ * Stav k 2026-10-22: 218 obrázků, všechny s doloženým kreditem,
+ * 0 bez doloženého původu.
  */
 import type { PhotoCredit } from "../lib/photo-credits";
 import credits from "./photo-credits.json";

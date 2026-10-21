@@ -71,23 +71,39 @@ Ponechané fotky podle poskytovatele: unsplash 52, pexels 22, pixabay 3, nasa 1.
 | Getty/iStock — placená licence, kterou nemáme doloženou | 1 |
 | Envato Elements — placená licence, kterou nemáme doloženou | 1 |
 
-## ⏳ Zbývá: úklid v CMS a na CDN
+## ✅ Úklid v CMS a na CDN (ověřeno 2026-10-22)
 
-Na webu už nedoložené fotky nejsou, ale **v databázi pořád jsou**
-— `articles.featured_image_url` a `<img>` v `articles.content`. Dokud se
-nevyprázdní, bude je vidět náhled v CMS a soubory zůstanou na veřejné
-adrese CDN.
+- V databázi už žádná nedoložená fotka není: `featured_image_url`
+  i `<img>` v `articles.content` obsahují jen adresy s kreditem v registru.
+- Všech 235 souborů z `docs/fotky-k-odstraneni.txt` vrací na
+  `cdn.samecdigital.com` 404.
+- `LIMIT_NEDOLOZENYCH_V_CMS` je proto 0.
 
-1. Vyprázdnit `featured_image_url` + `featured_image_credit` u 81 článků
-   a odebrat nedoložené `<img>` z těl 62 článků.
-   Podklad: `docs/fotky-k-odstraneni.txt`, hotový skript
-   `scripts/uklid-fotek-v-cms.mjs` (píše do produkční databáze, proto se
-   pouští ručně a s rozmyslem).
-2. Smazat soubory z `cdn.samecdigital.com` — seznam je v
-   `docs/fotky-k-odstraneni.txt`. Samotné odstranění z databáze nestačí,
-   dokud soubor visí na veřejné URL.
-3. Po úklidu spustit `npm run kontrola-fotek` a snížit
-   `LIMIT_NEDOLOZENYCH_V_CMS` v `src/data/photo-credits.test.ts`.
+‼️ Úklid z 11. 9. nechal v textech pár osiřelých značek Gutenbergu
+(`<!-- /wp:image --></figure>`, `<!-- /wp:gallery -->` bez otevírací
+značky) — u galerií vyhodil jen první `<figure>`. Na webu nejsou vidět
+(sanitizer je zahodí), ale kdo text strojově rozebírá po blocích, musí
+osiřelé uzavírací značky přeskočit.
+
+## Doplněné fotky (2026-10-20 až 22)
+
+Na místa po vyhozených fotkách přišly nové s doloženou licencí:
+
+- **úvodní fotka u všech 83 článků**, které ji ztratily (142/142 má fotku),
+- **57 fotek do textu ve 44 článcích**, vložených za týž odstavec, kde stála
+  původní (pozice z buildu z 1. 6. 2026). Kde šlo o snímek obrazovky, graf,
+  fotku konkrétního člověka nebo produktu pod nadpisem s jeho jménem,
+  místo zůstalo prázdné — náhrada ze stocku by čtenáře klamala.
+
+Zdroje: Pexels a Pixabay (fotky stažené z API, autor ověřený u zdroje),
+z Commons jen volná díla (NASA, U.S. Air Force, `PD-self`). CC BY / CC BY-SA
+se schválně nepoužívaly. Tři původní fotky se vrátily, protože jejich
+Pixabay ID v názvu souboru jde doložit (Bajkal, sněžný hotel v Kirkenes,
+vánoční fotka). Segovia z účtu Pixabay „WikimediaImages“ ne — ten přebaluje
+fotky z Commons a licence nemusí sedět.
+
+Kredit každé fotky je v registru (`src/data/photo-credits.json`)
+i v knihovně CMS (`images`, sloupce `license` a `license_url`).
 
 ## ⏳ Zbývá: jména autorů u fotek z Unsplash
 
