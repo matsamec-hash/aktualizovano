@@ -69,6 +69,7 @@ jobs:
             set net:reconnect-interval-base 10;
             open -u $FTP_USER,$FTP_PASS $FTP_HOST;
             mirror --reverse --only-newer --parallel=2 dist/ /public_html/;
+            rm -f /public_html/default.php;
           "
 
       - name: Ping IndexNow (Bing / Seznam / Yandex)
