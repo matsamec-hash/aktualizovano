@@ -1,6 +1,6 @@
 {
  "porizeno": "2026-10-22",
- "pouziteObrazky": 218,
+ "pouziteObrazky": 220,
  "sKreditem": [
   "https://cdn.samecdigital.com/1785744261-esim-vs-roaming-kolik-usetrite-v-zahranici-px3885588.webp",
   "https://cdn.samecdigital.com/1785744264-nejlepsi-esim-na-cesty-2026-srovnani-px3243090.webp",
@@ -149,6 +149,7 @@
   "https://cdn.samecdigital.com/1792623230-vybirame-napadite-darky-pro-sve-blizke-text-pb3784021.webp",
   "https://cdn.samecdigital.com/1792623230-vykouzlete-si-doma-hamburger-jako-v-prave-americke-text-px29173101.webp",
   "https://cdn.samecdigital.com/1792623230-ze-skody-enyaq-je-muzejni-exponat-do-propadliste-d-text-px9460515.webp",
+  "https://cdn.samecdigital.com/1792710335-kdy-pro-podnikani-zvolit-s-r-o-a-kdy-radeji-osvc-px7054502.webp",
   "https://cdn.samecdigital.com/aktualizovano/2021/01/PIA23961.png",
   "https://cdn.samecdigital.com/aktualizovano/2021/01/aleksi-raisa-y-BIhyjjHv4-unsplash.jpg",
   "https://cdn.samecdigital.com/aktualizovano/2021/01/jordan-whitt-EerxztHCjM8-unsplash-1024x684.jpg",
@@ -216,10 +217,13 @@
   "https://cdn.samecdigital.com/aktualizovano/2024/06/pexels-alex-green-5699455.jpg",
   "https://cdn.samecdigital.com/aktualizovano/2025/02/ross-parmly-rf6ywHVkrlY-unsplash-1024x680.jpg",
   "https://cdn.samecdigital.com/aktualizovano/2025/02/suhyeon-choi-tTfDMaRq-FE-unsplash-scaled.jpg",
-  "https://cdn.samecdigital.com/aktualizovano/2025/03/getty-images-6y6DGYcuQNo-unsplash-scaled.jpg",
   "https://cdn.samecdigital.com/aktualizovano/2025/05/igor-omilaev-eGGFZ5X2LnA-unsplash.jpg",
   "https://images.pexels.com/photos/2105927/pexels-photo-2105927.jpeg",
   "https://images.pexels.com/photos/2166/flight-sky-earth-space.jpg"
+ ],
+ "sKreditemVCms": [
+  "https://cdn.samecdigital.com/1792652913-porsche-mission-s-supersport-nad-911-motor-uprostr-px38041818.webp",
+  "https://cdn.samecdigital.com/1792708505-odstavka-mbank-25-rijna-2026-co-nebude-fungovat-px11341268.webp"
  ],
  "bezKreditu": {}
 }

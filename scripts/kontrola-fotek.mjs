@@ -23,6 +23,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
+import { isDocumentedCredit } from "./lib/kredit.mjs";
 
 const KOREN = join(dirname(fileURLToPath(import.meta.url)), "..");
 const CESTA_KREDITY = join(KOREN, "src/data/photo-credits.json");
@@ -63,32 +64,43 @@ if (error) {
 }
 
 const pouzite = new Map();
+// Úvodní fotka smí mít kredit i jen v CMS (`featured_image_credit`), obrázek
+// v těle článku jen v tabulce v repu — jinak ho `stripUncreditedImages` vyhodí.
+const kreditVCms = new Set();
+const vTextu = new Set();
 const pridej = (url, slug) => {
   const k = klic(url);
   if (!k) return;
   pouzite.set(k, (pouzite.get(k) ?? new Set()).add(slug));
 };
 for (const a of data) {
-  if (a.featured_image_url) pridej(a.featured_image_url, a.slug);
+  if (a.featured_image_url) {
+    pridej(a.featured_image_url, a.slug);
+    if (isDocumentedCredit(a.featured_image_credit)) kreditVCms.add(klic(a.featured_image_url));
+  }
   // Vlastní média v těle: obrázky i videa ze souboru na CDN. Promo znělka
   // Discovery v <video> se takhle poprvé našla až v hotovém buildu.
   for (const m of String(a.content ?? "").matchAll(
     /<(?:img|video|source)[^>]+src=["']([^"']+)["']/gi,
   )) {
     pridej(m[1], a.slug);
+    vTextu.add(klic(m[1]));
   }
 }
 
 const sKreditem = [];
+const sKreditemVCms = [];
 const bezKreditu = {};
 for (const u of [...pouzite.keys()].sort()) {
   if (kredity[u]) sKreditem.push(u);
+  else if (kreditVCms.has(u) && !vTextu.has(u)) sKreditemVCms.push(u);
   else bezKreditu[u] = soupis.bezKreditu?.[u] ?? "původ se nepodařilo doložit";
 }
 
 console.log(
   `článků: ${data.length} | obrázků: ${pouzite.size} | ` +
-    `s kreditem: ${sKreditem.length} | bez kreditu: ${Object.keys(bezKreditu).length}`,
+    `s kreditem: ${sKreditem.length} + ${sKreditemVCms.length} jen v CMS | ` +
+    `bez kreditu: ${Object.keys(bezKreditu).length}`,
 );
 
 const drive = Object.keys(soupis.bezKreditu ?? {}).length;
@@ -107,7 +119,13 @@ if (!process.argv.includes("--jen-vypis")) {
   writeFileSync(
     CESTA_SOUPIS,
     JSON.stringify(
-      { porizeno: new Date().toISOString().slice(0, 10), pouziteObrazky: pouzite.size, sKreditem, bezKreditu },
+      {
+        porizeno: new Date().toISOString().slice(0, 10),
+        pouziteObrazky: pouzite.size,
+        sKreditem,
+        sKreditemVCms,
+        bezKreditu,
+      },
       null,
       1,
     ) + "\n",
