@@ -146,6 +146,10 @@ async function main() {
   lines.push("<IfModule mod_rewrite.c>");
   lines.push("RewriteEngine On");
   lines.push("");
+  lines.push("# www → bez www (jinak je celý web dvakrát pod dvěma adresami)");
+  lines.push("RewriteCond %{HTTP_HOST} ^www\\.aktualizovano\\.cz$ [NC]");
+  lines.push("RewriteRule ^(.*)$ https://aktualizovano.cz/$1 [R=301,L]");
+  lines.push("");
   lines.push("# Affiliate wildcard 301 → homepage (preserves Wikipedia DR 97 links + others)");
   lines.push("# Phase 0 emergency fix; replace with per-hash Cloudflare rules in Phase 4+");
   lines.push("RewriteRule ^l-sk/c-.*$ / [R=301,L]");
@@ -221,6 +225,17 @@ async function main() {
   // 1 rok immutable. Ostatní assety (css/js/img) 30 dní s revalidací (pagefind
   // soubory mají stabilní cesty, proto NE immutable). HTML krátce (denní rebuild).
   // Řeší Lighthouse cache-insight.
+  // Bezpečnostní hlavičky. HSTS bez includeSubDomains — subdomény (staging)
+  // si HTTPS řídí samy. CSP záměrně ne: Hostinger posílá vlastní
+  // `upgrade-insecure-requests` a plná CSP by rozbila inline skripty a GA.
+  lines.push("# === Security headers ===");
+  lines.push("<IfModule mod_headers.c>");
+  lines.push('  Header always set Strict-Transport-Security "max-age=31536000"');
+  lines.push('  Header always set X-Content-Type-Options "nosniff"');
+  lines.push('  Header always set X-Frame-Options "SAMEORIGIN"');
+  lines.push('  Header always set Referrer-Policy "strict-origin-when-cross-origin"');
+  lines.push("</IfModule>");
+  lines.push("");
   lines.push("# === Static asset caching ===");
   lines.push("<IfModule mod_headers.c>");
   lines.push('  <FilesMatch "\\.(woff2|woff|ttf|otf)$">');
