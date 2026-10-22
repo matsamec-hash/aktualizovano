@@ -11,7 +11,7 @@ export const IMG_WIDTHS = {
   card: [320, 480, 640, 800],
   // Malé čtvercové thumbnaily (FloatingCard ~96px, RailStory ~112px) – jen 1×/2×.
   thumb: [112, 224],
-} as const;
+} satisfies Record<string, number[]>; // ne `as const`: getImage chce number[], readonly neprojde
 
 export const IMG_SIZES = {
   hero: "100vw",

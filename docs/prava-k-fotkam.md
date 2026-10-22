@@ -105,11 +105,21 @@ fotky z Commons a licence nemusí sedět.
 Kredit každé fotky je v registru (`src/data/photo-credits.json`)
 i v knihovně CMS (`images`, sloupce `license` a `license_url`).
 
-## ⏳ Zbývá: jména autorů u fotek z Unsplash
+## ✅ Jména autorů u fotek z Unsplash (2026-10-23)
 
-Unsplash License atribuci nevyžaduje, takže u fotek, kterým se nepodařilo
-dotáhnout jméno fotografa, je v kreditu uveden poskytovatel („Unsplash")
-a ověřený odkaz na originál. Jméno se **nedohaduje** ze slugu v názvu
-souboru — `aleksi-raisa` je ve skutečnosti Aleksi Räisä a špatně napsané
-jméno je horší než žádné. Dotáhnout jde přes Unsplash API
-(demo klíč dává 50 dotazů za hodinu).
+Posledních pět fotek, u kterých byl v kreditu jen poskytovatel („Unsplash"),
+má jméno autora dotažené z Unsplash API. Jméno se **nedohaduje** ze slugu
+v názvu souboru — `aleksi-raisa` je ve skutečnosti Aleksi Räisä a špatně
+napsané jméno je horší než žádné (demo klíč API dává 50 dotazů za hodinu).
+
+## ‼️ Unsplash+ není Unsplash License
+
+Šestá z nich — `getty-images-6y6DGYcuQNo` (úvodní fotka článku o s.r.o.
+a OSVČ) — je z placené sbírky **Unsplash+**: API u ní vrací
+`urls.raw` na `plus.unsplash.com`, ne na `images.unsplash.com`. Na takovou
+fotku se volná Unsplash License nevztahuje a předplatné doložit neumíme.
+Nahrazena fotkou z Pexels (Kindel Media), kredit v registru.
+
+Kontrola pro každou fotku z Unsplash: `GET https://api.unsplash.com/photos/<id>`
+→ `urls.raw` musí ležet na `images.unsplash.com`. Názvy souborů
+`getty-images-…` jsou podezřelé vždycky.

@@ -109,6 +109,28 @@ describe("co se počítá jako doložený kredit", () => {
     });
     expect(c!.author).toBe("Jimmy Chan");
   });
+
+  it("kopie pravidla pro skripty (scripts/lib/kredit.mjs) rozhoduje stejně", async () => {
+    const skript = await import("../../scripts/lib/kredit.mjs");
+    const vzorky = [
+      null,
+      {},
+      { provider: "upload", photographer_name: "archiv", source_url: "" },
+      { provider: "upload", photographer_name: "Wikimedia Commons", source_url: "https://commons.wikimedia.org/x" },
+      { provider: "pexels", photographer_name: "Pexels", source_url: "https://www.pexels.com/photo/2166/" },
+      { provider: "pexels", photographer_name: "", source_url: "" },
+      { provider: "PIXABAY", photographer_name: "-", source_url: "https://pixabay.com/x/" },
+      { provider: "commons", photographer_name: "Jan Novák", source_url: "" },
+      { provider: "ai", photographer_name: null, source_url: "https://x.cz/" },
+      { provider: "upload", photographer_name: " J ", source_url: "" },
+    ];
+    for (const v of vzorky) {
+      expect(skript.isDocumentedCredit(v), JSON.stringify(v)).toBe(isDocumentedCredit(v));
+      expect(skript.isRealAuthorName(v?.photographer_name), JSON.stringify(v)).toBe(
+        isRealAuthorName(v?.photographer_name),
+      );
+    }
+  });
 });
 
 describe("normalizace adresy", () => {

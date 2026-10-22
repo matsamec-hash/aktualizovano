@@ -551,17 +551,19 @@
   "provider": "pexels"
  },
  "https://cdn.samecdigital.com/aktualizovano/2023/10/jhon-david-Z00uMeo-Qv4-unsplash.jpg": {
-  "author": "Unsplash",
+  "author": "Jhon David",
   "license": "Unsplash License",
   "licenseUrl": "https://unsplash.com/license",
   "sourceUrl": "https://unsplash.com/photos/Z00uMeo-Qv4",
+  "authorUrl": "https://unsplash.com/@jackhammer",
   "provider": "unsplash"
  },
  "https://cdn.samecdigital.com/aktualizovano/2024/02/rock-staar-NzIV4vOBA7s-unsplash.jpg": {
-  "author": "Unsplash",
+  "author": "Rock Staar",
   "license": "Unsplash License",
   "licenseUrl": "https://unsplash.com/license",
   "sourceUrl": "https://unsplash.com/photos/NzIV4vOBA7s",
+  "authorUrl": "https://unsplash.com/@rockstaar_",
   "provider": "unsplash"
  },
  "https://cdn.samecdigital.com/aktualizovano/2024/06/pexels-alex-green-5699455.jpg": {
@@ -573,31 +575,27 @@
   "provider": "pexels"
  },
  "https://cdn.samecdigital.com/aktualizovano/2025/02/ross-parmly-rf6ywHVkrlY-unsplash-1024x680.jpg": {
-  "author": "Unsplash",
+  "author": "Ross Parmly",
   "license": "Unsplash License",
   "licenseUrl": "https://unsplash.com/license",
   "sourceUrl": "https://unsplash.com/photos/rf6ywHVkrlY",
+  "authorUrl": "https://unsplash.com/@rparmly",
   "provider": "unsplash"
  },
  "https://cdn.samecdigital.com/aktualizovano/2025/02/suhyeon-choi-tTfDMaRq-FE-unsplash-scaled.jpg": {
-  "author": "Unsplash",
+  "author": "Suhyeon Choi",
   "license": "Unsplash License",
   "licenseUrl": "https://unsplash.com/license",
   "sourceUrl": "https://unsplash.com/photos/tTfDMaRq-FE",
-  "provider": "unsplash"
- },
- "https://cdn.samecdigital.com/aktualizovano/2025/03/getty-images-6y6DGYcuQNo-unsplash-scaled.jpg": {
-  "author": "Unsplash",
-  "license": "Unsplash License",
-  "licenseUrl": "https://unsplash.com/license",
-  "sourceUrl": "https://unsplash.com/photos/6y6DGYcuQNo",
+  "authorUrl": "https://unsplash.com/@by_syeoni",
   "provider": "unsplash"
  },
  "https://cdn.samecdigital.com/aktualizovano/2025/05/igor-omilaev-eGGFZ5X2LnA-unsplash.jpg": {
-  "author": "Unsplash",
+  "author": "Igor Omilaev",
   "license": "Unsplash License",
   "licenseUrl": "https://unsplash.com/license",
   "sourceUrl": "https://unsplash.com/photos/eGGFZ5X2LnA",
+  "authorUrl": "https://unsplash.com/@omilaev",
   "provider": "unsplash"
  },
  "https://images.pexels.com/photos/2105927/pexels-photo-2105927.jpeg": {
@@ -1732,5 +1730,13 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Subaru_brat_copy.jpg",
   "authorUrl": "https://commons.wikimedia.org/wiki/User:Ferjim",
   "provider": "commons"
+ },
+ "https://cdn.samecdigital.com/1792710335-kdy-pro-podnikani-zvolit-s-r-o-a-kdy-radeji-osvc-px7054502.webp": {
+  "author": "Kindel Media",
+  "license": "Pexels License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "sourceUrl": "https://www.pexels.com/photo/a-person-signing-a-document-7054502/",
+  "authorUrl": "https://www.pexels.com/@kindelmedia",
+  "provider": "pexels"
  }
 }
