@@ -51,7 +51,7 @@ git push -u origin master
 
 ```
 src/
-├── components/   Header, Footer, ArticleCard, HeroArticle, SEOHead, Newsletter, CookieConsent
+├── components/   Header, Footer, ArticleCard, HeroArticle, SEOHead, CookieConsent
 ├── layouts/      Base.astro, Article.astro
 ├── lib/          supabase.ts, content.ts, auto-linker.ts, types.ts
 ├── pages/        index, [slug], kategorie/[cat], 404, o-nas, cookies, zasady-ochrany, podminky
