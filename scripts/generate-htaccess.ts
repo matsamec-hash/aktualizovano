@@ -234,6 +234,7 @@ async function main() {
   lines.push('  Header always set X-Content-Type-Options "nosniff"');
   lines.push('  Header always set X-Frame-Options "SAMEORIGIN"');
   lines.push('  Header always set Referrer-Policy "strict-origin-when-cross-origin"');
+  lines.push('  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=()"');
   lines.push("</IfModule>");
   lines.push("");
   lines.push("# === Static asset caching ===");
