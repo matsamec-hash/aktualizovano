@@ -226,8 +226,10 @@ async function main() {
   // soubory mají stabilní cesty, proto NE immutable). HTML krátce (denní rebuild).
   // Řeší Lighthouse cache-insight.
   // Bezpečnostní hlavičky. HSTS bez includeSubDomains — subdomény (staging)
-  // si HTTPS řídí samy. CSP záměrně ne: Hostinger posílá vlastní
-  // `upgrade-insecure-requests` a plná CSP by rozbila inline skripty a GA.
+  // si HTTPS řídí samy. CSP (vlna 1, 25. 11. 2026) vlastní hlavičkou nahrazuje
+  // `upgrade-insecure-requests` od LiteSpeedu (ten ji obsahuje také). Politika je
+  // otestovaná v prohlížeči (0 porušení před i po souhlasu, GA4 + YouTube + cdn);
+  // při změně hostů (reklamy, nové vložené služby) ji upravit TADY a znovu otestovat.
   lines.push("# === Security headers ===");
   lines.push("<IfModule mod_headers.c>");
   lines.push('  Header always set Strict-Transport-Security "max-age=31536000"');
@@ -235,6 +237,7 @@ async function main() {
   lines.push('  Header always set X-Frame-Options "SAMEORIGIN"');
   lines.push('  Header always set Referrer-Policy "strict-origin-when-cross-origin"');
   lines.push('  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=()"');
+  lines.push(`  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://analytika.samecdigital.com 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://cdn.samecdigital.com; font-src 'self'; connect-src 'self' https://analytika.samecdigital.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests; frame-src 'self' https://www.youtube.com"`);
   lines.push("</IfModule>");
   lines.push("");
   lines.push("# === Static asset caching ===");
