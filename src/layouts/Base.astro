@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SEOHead from "../components/SEOHead.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import { UMAMI_ZNACKA } from "../lib/mereni";
 import "../styles/global.css";
 
 interface Props {
@@ -72,6 +73,8 @@ const {
     ) : (
       preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
     )}
+    <!-- Vlastní Umami: bez cookies a bez úložiště, proto běží i bez souhlasu (viz src/lib/mereni.ts). -->
+    <script is:inline set:html={UMAMI_ZNACKA} />
   </head>
   <body class="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
     <CookieConsent />
